@@ -7,7 +7,15 @@ import { anonymizeSdf, type Molecule } from './logic/molecule';
 import { moleculesJsonUrl, sdfUrl } from './logic/paths';
 import { shareText } from './logic/share';
 import { recordResult } from './logic/stats';
-import { loadProgress, loadStats, saveProgress, saveStats, type KeyValueStore } from './logic/storage';
+import {
+  hasSeenHelp,
+  loadProgress,
+  loadStats,
+  markHelpSeen,
+  saveProgress,
+  saveStats,
+  type KeyValueStore,
+} from './logic/storage';
 import { mountGuessInput } from './ui/guessInput';
 import { renderEnd, renderGuesses, renderHints } from './ui/render';
 import { shareResult } from './ui/share';
@@ -40,6 +48,7 @@ async function start(): Promise<void> {
   const endEl = $<HTMLElement>('#end');
   const hintsEl = $<HTMLElement>('#hints');
   const statsDialog = $<HTMLDialogElement>('#stats');
+  const helpDialog = $<HTMLDialogElement>('#help');
   const statsBody = $<HTMLElement>('#stats-body');
 
   const store = storage();
@@ -55,11 +64,21 @@ async function start(): Promise<void> {
     statsDialog.showModal();
   };
   $('#stats-button').addEventListener('click', openStats);
-  $('#stats-close').addEventListener('click', () => statsDialog.close());
-  // Clicking the backdrop (outside the dialog box) closes it too.
-  statsDialog.addEventListener('click', (e) => {
-    if (e.target === statsDialog) statsDialog.close();
-  });
+  for (const dialog of [statsDialog, helpDialog]) {
+    for (const b of dialog.querySelectorAll('.dialog-close, .help-play')) {
+      b.addEventListener('click', () => dialog.close());
+    }
+    // Clicking the backdrop (outside the dialog box) closes it too.
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) dialog.close();
+    });
+  }
+  $('#help-button').addEventListener('click', () => helpDialog.showModal());
+  // First visit: explain the rules once.
+  if (!hasSeenHelp(store)) {
+    helpDialog.showModal();
+    markHelpSeen(store);
+  }
 
   let hints: Hints = {};
   try {
@@ -87,9 +106,13 @@ async function start(): Promise<void> {
   const resumed = saved?.puzzle === puzzle && saved.targetId === target.id;
   let state = restoreGame(target, resumed ? saved.guesses : [], molecules);
 
-  const render = () => {
-    renderGuesses(guessList, countEl, state, byId);
-    renderHints(hintsEl, revealedHints(hints[target.id], wrongGuessCount(state)));
+  let shownHints = 0;
+  /** `animate`: the last guess (and any newly revealed hint) was just made. */
+  const render = (animate = false) => {
+    renderGuesses(guessList, countEl, state, byId, animate);
+    const revealed = revealedHints(hints[target.id], wrongGuessCount(state));
+    renderHints(hintsEl, revealed, animate ? shownHints : Infinity);
+    shownHints = revealed.length;
   };
 
   /** Show the end screen. Stats are recorded once per puzzle (reloads are safe). */
@@ -105,6 +128,7 @@ async function start(): Promise<void> {
     renderEnd(endEl, state, target, openStats, () => {
       void shareResult(shareText(state, byId, puzzle));
     });
+    endEl.classList.toggle('end-new', justEnded);
     startCountdowns(puzzle);
     if (justEnded) setTimeout(openStats, 1200);
   };
@@ -122,7 +146,7 @@ async function start(): Promise<void> {
       state = result.state;
       saveProgress(store, { puzzle, targetId: target.id, guesses: state.guesses });
       guessInput.clear();
-      render();
+      render(true);
       if (state.status !== 'playing') finish(true);
     },
   );

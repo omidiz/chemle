@@ -11,8 +11,11 @@ const SPIN_SPEED = 0.4;
  * element colors. Slowly auto-rotates until the user touches or drags.
  */
 export function showMolecule(container: HTMLElement, sdf: string): MoleculeViewer {
+  // Transparent canvas: the container's CSS background shows through, so the
+  // viewer follows light/dark mode without re-rendering.
   const viewer = createViewer(container, {
     backgroundColor: 'white',
+    backgroundAlpha: 0,
     antialias: true,
   });
 
