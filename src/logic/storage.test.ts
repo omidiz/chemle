@@ -1,7 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { emptyStats, recordResult } from './stats';
 import {
+  hasSeenHelp,
+  HELP_SEEN_KEY,
   loadProgress,
+  markHelpSeen,
   loadStats,
   PROGRESS_KEY,
   saveProgress,
@@ -62,4 +65,23 @@ it('survives storage that throws', () => {
   expect(loadStats(broken)).toEqual(emptyStats());
   expect(() => saveProgress(broken, { puzzle: 0, targetId: 'x', guesses: [] })).not.toThrow();
   expect(() => saveStats(broken, emptyStats())).not.toThrow();
+});
+
+describe('help seen flag', () => {
+  it('is false on a first visit and true once marked', () => {
+    const store = fakeStore();
+    expect(hasSeenHelp(store)).toBe(false);
+    markHelpSeen(store);
+    expect(hasSeenHelp(store)).toBe(true);
+    expect(store.getItem(HELP_SEEN_KEY)).toBe('true');
+  });
+
+  it('treats garbage as not seen', () => {
+    expect(hasSeenHelp(fakeStore({ [HELP_SEEN_KEY]: '{oops' }))).toBe(false);
+  });
+
+  it('survives blocked storage', () => {
+    expect(hasSeenHelp(broken)).toBe(false);
+    expect(() => markHelpSeen(broken)).not.toThrow();
+  });
 });

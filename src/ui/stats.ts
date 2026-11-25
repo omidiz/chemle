@@ -81,7 +81,7 @@ export function startCountdowns(puzzle: number): void {
       const time = c.querySelector('.countdown-time');
       if (!time) continue;
       if (newDay) {
-        const button = el('button', 'reload-button', 'Play the new molecule');
+        const button = el('button', 'primary-button reload-button', 'Play the new molecule');
         button.type = 'button';
         button.addEventListener('click', () => location.reload());
         c.replaceChildren(button);
