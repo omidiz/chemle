@@ -1,5 +1,68 @@
+import {
+  compareMolecules,
+  comparisonTiles,
+  directionArrow,
+  TILE_LABELS,
+  tileDescription,
+  tileValue,
+  verdictIcon,
+  type Tile,
+} from '../logic/compare';
 import { formulaParts, MAX_GUESSES, type GameState } from '../logic/game';
 import type { Molecule } from '../logic/molecule';
+
+function el<K extends keyof HTMLElementTagNameMap>(
+  tag: K,
+  className: string,
+  text?: string,
+): HTMLElementTagNameMap[K] {
+  const e = document.createElement(tag);
+  e.className = className;
+  if (text !== undefined) e.textContent = text;
+  return e;
+}
+
+/**
+ * One feedback tile. The verdict is shown by color *and* an icon (✓ ≈ ✗),
+ * direction by an arrow; screen readers get a full sentence instead.
+ */
+function tileEl(tile: Tile): HTMLLIElement {
+  const li = el('li', `tile tile-${tile.key} tile-${tile.verdict}`);
+  const visual = el('span', 'tile-body');
+  visual.setAttribute('aria-hidden', 'true');
+
+  const head = el('span', 'tile-head');
+  head.append(el('span', 'tile-label', TILE_LABELS[tile.key]));
+  head.append(el('span', 'tile-icon', verdictIcon(tile.verdict)));
+  visual.append(head);
+
+  if (tile.key === 'groups') {
+    const chips = el('span', 'chips');
+    if (tile.shared.length) {
+      chips.append(...tile.shared.map((g) => el('span', 'chip', g)));
+    } else {
+      chips.append(el('span', 'chip chip-none', 'none shared'));
+    }
+    visual.append(chips);
+  } else {
+    const value = el('span', 'tile-value', tileValue(tile));
+    if (tile.key !== 'category') {
+      const arrow = directionArrow(tile.direction);
+      if (arrow) value.append(el('span', 'tile-arrow', arrow));
+    }
+    visual.append(value);
+  }
+
+  li.append(visual, el('span', 'sr-only', tileDescription(tile)));
+  return li;
+}
+
+function tilesEl(guess: Molecule, target: Molecule): HTMLUListElement {
+  const ul = el('ul', 'tiles');
+  ul.setAttribute('aria-label', `${guess.name} compared with the answer`);
+  ul.append(...comparisonTiles(compareMolecules(guess, target)).map(tileEl));
+  return ul;
+}
 
 export function renderGuesses(
   listEl: HTMLOListElement,
@@ -7,25 +70,42 @@ export function renderGuesses(
   state: GameState,
   byId: ReadonlyMap<string, Molecule>,
 ): void {
+  const target = byId.get(state.targetId);
   listEl.replaceChildren(
     ...state.guesses.map((id) => {
       const li = document.createElement('li');
       const correct = id === state.targetId;
+      const guess = byId.get(id);
       li.className = `guess ${correct ? 'guess-correct' : 'guess-wrong'}`;
+      const head = el('div', 'guess-head');
       const mark = document.createElement('span');
       mark.className = 'guess-mark';
       mark.setAttribute('aria-hidden', 'true');
       mark.textContent = correct ? '✓' : '✗';
       const name = document.createElement('span');
-      name.textContent = byId.get(id)?.name ?? id;
+      name.textContent = guess?.name ?? id;
       const sr = document.createElement('span');
       sr.className = 'sr-only';
       sr.textContent = correct ? ' (correct)' : ' (wrong)';
-      li.append(mark, name, sr);
+      head.append(mark, name, sr);
+      li.append(head);
+      if (!correct && guess && target) li.append(tilesEl(guess, target));
       return li;
     }),
   );
   countEl.textContent = `Guess ${Math.min(state.guesses.length + 1, MAX_GUESSES)} of ${MAX_GUESSES}`;
+}
+
+/** Show the revealed hints (hidden while there are none). */
+export function renderHints(panel: HTMLElement, hints: readonly string[]): void {
+  panel.replaceChildren(
+    ...hints.map((text, i) => {
+      const p = el('p', 'hint');
+      p.append(el('strong', 'hint-label', `Hint ${i + 1}`), ' ', text);
+      return p;
+    }),
+  );
+  panel.hidden = hints.length === 0;
 }
 
 function formulaEl(formula: string): HTMLElement {

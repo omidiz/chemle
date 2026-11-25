@@ -1,0 +1,168 @@
+# Hand-written hints for Chemle, keyed by molecule id (see public/data/molecules.json).
+# hint1 is revealed after the 3rd wrong guess, hint2 after the 5th.
+#
+# Format: one line per hint. Plain text is fine; use "double quotes" if the
+# hint contains ": " or starts with a special character. Don't mention the
+# molecule's name or aliases — the tests check for that.
+#
+# Every molecule below still has PLACEHOLDER hints. Replace them.
+
+caffeine:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+theobromine:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+nicotine:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+capsaicin:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+menthol:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+vanillin:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+cinnamaldehyde:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+limonene:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+curcumin:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+allicin:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+glucose:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+fructose:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+sucrose:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+ethanol:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+acetic-acid:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+citric-acid:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+lactic-acid:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+ascorbic-acid:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+urea:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+aspirin:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+ibuprofen:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+paracetamol:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+penicillin-g:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+morphine:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+quinine:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+dopamine:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+serotonin:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+adrenaline:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+histamine:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+acetylcholine:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+gaba:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+melatonin:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+cortisol:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+testosterone:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+estradiol:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+cholesterol:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+glycine:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+tryptophan:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+atp:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
+
+aspartame:
+  hint1: "Placeholder hint 1 — not written yet."
+  hint2: "Placeholder hint 2 — not written yet."
