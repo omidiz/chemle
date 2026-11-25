@@ -3,7 +3,9 @@
 
 Outputs:
   public/data/molecules.json     one entry per molecule (see MOLECULES below)
-  public/molecules/<id>.sdf      3D structure with hydrogens
+  public/molecules/<key>.sdf     3D structure with hydrogens, no name inside;
+                                 <key> = structure_key(id), an opaque hash so the
+                                 file name doesn't give the answer away
 
 Usage:
   pip install -r scripts/requirements.txt
@@ -38,6 +40,28 @@ REQUEST_GAP_S = 0.25  # PubChem asks for <= 5 requests/second
 USER_AGENT = "chemle-build-data/1.0"
 
 CATEGORIES = {"food", "drug", "neurotransmitter", "hormone", "vitamin", "metabolite"}
+
+
+def structure_key(molecule_id: str) -> str:
+    """Opaque SDF file name for a molecule id.
+
+    Must match `structureKey` in src/logic/molecule.ts (cyrb53 hash of
+    "chemle:" + id, as 14 hex digits); a test checks every file name.
+    """
+    def imul(a: int, b: int) -> int:
+        return (a * b) & 0xFFFFFFFF
+
+    h1, h2 = 0xDEADBEEF, 0x41C6CE57
+    for ch in "chemle:" + molecule_id:
+        c = ord(ch)
+        assert c < 0x10000, "ids must be BMP characters (they are [a-z0-9-])"
+        h1 = imul(h1 ^ c, 2654435761)
+        h2 = imul(h2 ^ c, 1597334677)
+    h1 = imul(h1 ^ (h1 >> 16), 2246822507)
+    h1 ^= imul(h2 ^ (h2 >> 13), 3266489909)
+    h2 = imul(h2 ^ (h2 >> 16), 2246822507)
+    h2 ^= imul(h1 ^ (h1 >> 13), 3266489909)
+    return format((h2 & 0x1FFFFF) * 4294967296 + h1, "014x")
 
 
 @dataclass
@@ -285,7 +309,9 @@ def build_one(spec: Spec) -> tuple[dict, str, list[str]]:
     else:
         warnings.append("no PubChem 3D conformer; generated with RDKit (ETKDG+MMFF)")
         mol3d, source = generate_3d(props["isomeric_smiles"]), "rdkit"
-    mol3d.SetProp("_Name", spec.name)
+    # No title line or data items: the file is fetched by the browser, so
+    # anything naming the molecule here would give the answer away.
+    mol3d.SetProp("_Name", "")
     for prop in list(mol3d.GetPropNames()):
         mol3d.ClearProp(prop)
     sdf_out = Chem.MolToMolBlock(mol3d) + "$$$$\n"
@@ -378,10 +404,19 @@ def main() -> int:
             print(f"FAILED {spec.id}: {exc}", file=sys.stderr)
             failed.append(spec.id)
             continue
-        (SDF_DIR / f"{spec.id}.sdf").write_text(sdf)
+        (SDF_DIR / f"{structure_key(spec.id)}.sdf").write_text(sdf)
         entries.append(entry)
         all_warnings[spec.id] = warnings
         print(f"ok  {spec.id:<15} CID {entry['cid']:<10} {entry['sdfSource']}", file=sys.stderr)
+
+    # Remove structures of molecules that are no longer in the list (only
+    # after a full successful run, so a failed fetch doesn't delete a file).
+    if not failed:
+        keep = {f"{structure_key(s.id)}.sdf" for s in MOLECULES}
+        for stale in SDF_DIR.glob("*.sdf"):
+            if stale.name not in keep:
+                stale.unlink()
+                print(f"removed stale {stale.name}", file=sys.stderr)
 
     JSON_OUT.write_text(json.dumps(entries, indent=2, ensure_ascii=False) + "\n")
     print(f"\nwrote {JSON_OUT.relative_to(ROOT)} ({len(entries)} molecules)\n", file=sys.stderr)

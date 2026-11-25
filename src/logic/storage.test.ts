@@ -30,7 +30,7 @@ const broken: KeyValueStore = {
 describe('progress', () => {
   it('round-trips', () => {
     const store = fakeStore();
-    const p = { puzzle: 3, targetId: 'caffeine', guesses: ['dopamine', 'urea'] };
+    const p = { puzzle: 3, targetKey: '0d27b2cf116796', guesses: ['dopamine', 'urea'] };
     saveProgress(store, p);
     expect(loadProgress(store)).toEqual(p);
   });
@@ -38,9 +38,14 @@ describe('progress', () => {
   it('returns null when missing, corrupt or malformed', () => {
     expect(loadProgress(fakeStore())).toBeNull();
     expect(loadProgress(fakeStore({ [PROGRESS_KEY]: '{not json' }))).toBeNull();
-    expect(loadProgress(fakeStore({ [PROGRESS_KEY]: '{"puzzle":-1,"targetId":"x","guesses":[]}' }))).toBeNull();
-    expect(loadProgress(fakeStore({ [PROGRESS_KEY]: '{"puzzle":1,"targetId":"x","guesses":[1]}' }))).toBeNull();
+    expect(loadProgress(fakeStore({ [PROGRESS_KEY]: '{"puzzle":-1,"targetKey":"x","guesses":[]}' }))).toBeNull();
+    expect(loadProgress(fakeStore({ [PROGRESS_KEY]: '{"puzzle":1,"targetKey":"x","guesses":[1]}' }))).toBeNull();
     expect(loadProgress(fakeStore({ [PROGRESS_KEY]: 'null' }))).toBeNull();
+  });
+
+  it('ignores the old format that stored the answer id in plain text', () => {
+    const old = '{"puzzle":0,"targetId":"caffeine","guesses":["urea"]}';
+    expect(loadProgress(fakeStore({ [PROGRESS_KEY]: old }))).toBeNull();
   });
 });
 
@@ -63,7 +68,7 @@ describe('stats', () => {
 it('survives storage that throws', () => {
   expect(loadProgress(broken)).toBeNull();
   expect(loadStats(broken)).toEqual(emptyStats());
-  expect(() => saveProgress(broken, { puzzle: 0, targetId: 'x', guesses: [] })).not.toThrow();
+  expect(() => saveProgress(broken, { puzzle: 0, targetKey: 'x', guesses: [] })).not.toThrow();
   expect(() => saveStats(broken, emptyStats())).not.toThrow();
 });
 

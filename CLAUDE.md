@@ -21,7 +21,11 @@ After guess 3 and guess 5, a hand-written hint is revealed.
 ## Data
 - scripts/build_data.py (Python, PubChem + RDKit) generates:
   - public/data/molecules.json
-  - public/molecules/<id>.sdf (3D structures)
+  - public/molecules/<key>.sdf (3D structures, no title line or data items)
+- SDF files are named by `structureKey(id)` (src/logic/molecule.ts; same hash as
+  `structure_key` in build_data.py), never by the id or name, so the network tab
+  doesn't show the answer. Saved progress stores that key too, not the id.
+  A test checks file names and that raw SDFs contain no name/alias/id.
 - data/hints.yaml: hand-written hints, edited by the human only. Bundled via
   `?raw` and parsed by src/logic/hints.ts (a small YAML subset: one-line
   `hint1`/`hint2` per molecule id; no YAML dependency). A test checks every

@@ -10,12 +10,12 @@ describe('asset paths', () => {
   it('defaults to Vite BASE_URL', () => {
     const base = import.meta.env.BASE_URL;
     expect(moleculesJsonUrl()).toBe(`${base}data/molecules.json`);
-    expect(sdfUrl('caffeine')).toBe(`${base}molecules/caffeine.sdf`);
+    expect(sdfUrl('caffeine')).toBe(`${base}molecules/0d27b2cf116796.sdf`);
   });
 
   it('builds data and SDF URLs under /chemle/', () => {
     expect(moleculesJsonUrl('/chemle/')).toBe('/chemle/data/molecules.json');
-    expect(sdfUrl('caffeine', '/chemle/')).toBe('/chemle/molecules/caffeine.sdf');
+    expect(sdfUrl('caffeine', '/chemle/')).toBe('/chemle/molecules/0d27b2cf116796.sdf');
   });
 
   it('joins base and path with exactly one slash', () => {
