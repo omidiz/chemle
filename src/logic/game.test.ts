@@ -4,6 +4,7 @@ import {
   guessesLeft,
   MAX_GUESSES,
   newGame,
+  restoreGame,
   submitGuess,
   wrongGuessCount,
   type GameState,
@@ -93,5 +94,23 @@ describe('molecule data', () => {
       expect(m.fact, m.id).toMatch(/\S/);
       expect(m.fact, m.id).not.toContain('\n');
     }
+  });
+});
+
+describe('restoreGame', () => {
+  it('replays saved guesses', () => {
+    const s = restoreGame(target, ['dopamine', 'urea'], molecules);
+    expect(s).toEqual({ targetId: 'caffeine', guesses: ['dopamine', 'urea'], status: 'playing' });
+  });
+
+  it('restores a finished game', () => {
+    expect(restoreGame(target, ['urea', 'caffeine'], molecules).status).toBe('won');
+    const six = wrong.slice(0, MAX_GUESSES).map((m) => m.id);
+    expect(restoreGame(target, six, molecules).status).toBe('lost');
+  });
+
+  it('drops unknown and repeated ids and anything after the game ended', () => {
+    const s = restoreGame(target, ['nope', 'urea', 'urea', 'caffeine', 'dopamine'], molecules);
+    expect(s).toMatchObject({ guesses: ['urea', 'caffeine'], status: 'won' });
   });
 });

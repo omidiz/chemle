@@ -14,13 +14,6 @@ export interface Molecule {
   functionalGroups: string[];
 }
 
-/** Pick the molecule to show. For now: the first one. */
-export function pickMolecule(molecules: readonly Molecule[]): Molecule {
-  const first = molecules[0];
-  if (!first) throw new Error('No molecules in data');
-  return first;
-}
-
 /**
  * Remove anything from an SDF/MOL block that could reveal the molecule's
  * name: the title line (line 1) and any `> <PROP>` data items after `M  END`.

@@ -10,6 +10,7 @@ import {
 } from '../logic/compare';
 import { formulaParts, MAX_GUESSES, type GameState } from '../logic/game';
 import type { Molecule } from '../logic/molecule';
+import { countdownEl } from './stats';
 
 function el<K extends keyof HTMLElementTagNameMap>(
   tag: K,
@@ -123,11 +124,15 @@ function formulaEl(formula: string): HTMLElement {
   return el;
 }
 
-/** Fill the end-of-game panel (success or reveal) and show it. */
+/**
+ * Fill the end-of-game panel (success or reveal) with a countdown to the
+ * next puzzle, a Share button and a button that opens the stats, then show it.
+ */
 export function renderEnd(
   panel: HTMLElement,
   state: GameState,
   target: Molecule,
+  onShowStats: () => void,
   onShare: () => void,
 ): void {
   const won = state.status === 'won';
@@ -151,11 +156,15 @@ export function renderEnd(
   fact.className = 'end-fact';
   fact.textContent = target.fact;
 
-  const share = el('button', 'share-button', 'Share');
-  share.type = 'button';
-  share.addEventListener('click', onShare);
+  const statsButton = el('button', 'stats-link', 'See your stats');
+  statsButton.type = 'button';
+  statsButton.addEventListener('click', onShowStats);
 
-  panel.replaceChildren(heading, name, formula, fact, share);
+  const shareButton = el('button', 'share-button', 'Share');
+  shareButton.type = 'button';
+  shareButton.addEventListener('click', onShare);
+
+  panel.replaceChildren(heading, name, formula, fact, shareButton, countdownEl(), statsButton);
   panel.hidden = false;
   panel.focus();
 }

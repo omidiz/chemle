@@ -5,19 +5,6 @@ import type { Molecule } from './molecule';
 /** Shown at the end of the shared text (no scheme, so it stays short). */
 export const SHARE_URL = 'omidiz.github.io/chemle';
 
-/** Day of puzzle #1, as YYYY-MM-DD in the player's local calendar. */
-export const FIRST_PUZZLE_DATE = '2026-11-25';
-
-const DAY_MS = 24 * 60 * 60 * 1000;
-
-/** Puzzle number for a date (local calendar day): 1 on FIRST_PUZZLE_DATE. */
-export function puzzleNumber(date: Date, first = FIRST_PUZZLE_DATE): number {
-  const [y, m, d] = first.split('-').map(Number);
-  const start = Date.UTC(y!, m! - 1, d!);
-  const day = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate());
-  return Math.floor((day - start) / DAY_MS) + 1;
-}
-
 export function verdictEmoji(v: Verdict): string {
   switch (v) {
     case 'match':
