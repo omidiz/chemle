@@ -1,5 +1,13 @@
 import { describe, expect, it } from 'vitest';
-import { formulaParts, guessesLeft, MAX_GUESSES, newGame, submitGuess, type GameState } from './game';
+import {
+  formulaParts,
+  guessesLeft,
+  MAX_GUESSES,
+  newGame,
+  submitGuess,
+  wrongGuessCount,
+  type GameState,
+} from './game';
 import type { Molecule } from './molecule';
 import moleculesJson from '../../public/data/molecules.json';
 
@@ -53,6 +61,18 @@ describe('submitGuess', () => {
     let s = newGame(target);
     for (let i = 0; i < MAX_GUESSES - 1; i++) s = play(s, wrong[i]!.name);
     expect(play(s, 'Caffeine').status).toBe('won');
+  });
+});
+
+describe('wrongGuessCount', () => {
+  it('counts only wrong guesses', () => {
+    let s = newGame(target);
+    expect(wrongGuessCount(s)).toBe(0);
+    s = play(s, 'dopamine');
+    s = play(s, 'aspirin');
+    expect(wrongGuessCount(s)).toBe(2);
+    s = play(s, 'caffeine');
+    expect(wrongGuessCount(s)).toBe(2);
   });
 });
 

@@ -44,6 +44,10 @@ export function guessesLeft(state: GameState): number {
   return MAX_GUESSES - state.guesses.length;
 }
 
+export function wrongGuessCount(state: GameState): number {
+  return state.guesses.filter((id) => id !== state.targetId).length;
+}
+
 export function errorMessage(error: GuessError): string {
   switch (error) {
     case 'empty':
