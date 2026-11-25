@@ -10,6 +10,34 @@
       <h1 class="title">Chemle</h1>
       <div id="viewer" class="viewer" role="img" aria-label="Rotatable 3D model of today’s mystery molecule"></div>
       <p id="status" class="status">Loading…</p>
+      <section id="end" class="end" tabindex="-1" aria-live="polite" hidden></section>
+      <form id="guess-form" class="guess-form" autocomplete="off" hidden>
+        <p id="guess-count" class="guess-count"></p>
+        <div class="guess-row">
+          <div class="combobox">
+            <label for="guess-input" class="sr-only">Molecule name</label>
+            <input
+              id="guess-input"
+              class="guess-input"
+              type="text"
+              placeholder="Name the molecule…"
+              role="combobox"
+              aria-autocomplete="list"
+              aria-controls="suggestions"
+              aria-expanded="false"
+              aria-describedby="guess-error"
+              autocapitalize="off"
+              autocorrect="off"
+              spellcheck="false"
+              enterkeyhint="go"
+            />
+            <ul id="suggestions" class="suggestions" role="listbox" hidden></ul>
+          </div>
+          <button type="submit" class="guess-button">Guess</button>
+        </div>
+        <p id="guess-error" class="guess-error" role="alert"></p>
+      </form>
+      <ol id="guesses" class="guesses" aria-label="Your guesses"></ol>
     </main>
     <script type="module" src="/src/main.ts"></script>
   </body>
