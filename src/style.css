@@ -581,3 +581,47 @@ body {
 .dist-bar-today {
   background: #2f7d4f;
 }
+
+/* ---- Share ---- */
+
+.share-button {
+  margin-top: 14px;
+  height: 44px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 8px;
+  background: #2f855a;
+  color: #fff;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.share-button:focus-visible {
+  outline: 2px solid #1a1a1a;
+  outline-offset: 2px;
+}
+
+/* ---- Toast ---- */
+
+.toast {
+  position: fixed;
+  z-index: 20;
+  left: 50%;
+  bottom: max(24px, env(safe-area-inset-bottom));
+  transform: translate(-50%, 8px);
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #1a1a1a;
+  color: #fff;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.toast-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}

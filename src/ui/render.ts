@@ -126,13 +126,14 @@ function formulaEl(formula: string): HTMLElement {
 
 /**
  * Fill the end-of-game panel (success or reveal) with a countdown to the
- * next puzzle and a button that opens the stats, then show it.
+ * next puzzle, a Share button and a button that opens the stats, then show it.
  */
 export function renderEnd(
   panel: HTMLElement,
   state: GameState,
   target: Molecule,
   onShowStats: () => void,
+  onShare: () => void,
 ): void {
   const won = state.status === 'won';
   panel.className = `end ${won ? 'end-won' : 'end-lost'}`;
@@ -159,7 +160,11 @@ export function renderEnd(
   statsButton.type = 'button';
   statsButton.addEventListener('click', onShowStats);
 
-  panel.replaceChildren(heading, name, formula, fact, countdownEl(), statsButton);
+  const shareButton = el('button', 'share-button', 'Share');
+  shareButton.type = 'button';
+  shareButton.addEventListener('click', onShare);
+
+  panel.replaceChildren(heading, name, formula, fact, shareButton, countdownEl(), statsButton);
   panel.hidden = false;
   panel.focus();
 }

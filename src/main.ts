@@ -5,10 +5,12 @@ import { errorMessage, restoreGame, submitGuess, wrongGuessCount } from './logic
 import { parseHints, revealedHints, type Hints } from './logic/hints';
 import { anonymizeSdf, type Molecule } from './logic/molecule';
 import { moleculesJsonUrl, sdfUrl } from './logic/paths';
+import { shareText } from './logic/share';
 import { recordResult } from './logic/stats';
 import { loadProgress, loadStats, saveProgress, saveStats, type KeyValueStore } from './logic/storage';
 import { mountGuessInput } from './ui/guessInput';
 import { renderEnd, renderGuesses, renderHints } from './ui/render';
+import { shareResult } from './ui/share';
 import { renderStats, startCountdowns } from './ui/stats';
 import { showMolecule } from './viewer/viewer';
 
@@ -100,7 +102,9 @@ async function start(): Promise<void> {
     guessInput.disable();
     form.hidden = true;
     countEl.hidden = true;
-    renderEnd(endEl, state, target, openStats);
+    renderEnd(endEl, state, target, openStats, () => {
+      void shareResult(shareText(state, byId, puzzle));
+    });
     startCountdowns(puzzle);
     if (justEnded) setTimeout(openStats, 1200);
   };
