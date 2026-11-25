@@ -7,6 +7,7 @@
       "1,3,7-trimethylxanthine"
     ],
     "category": "food",
+    "fact": "The world's most widely consumed psychoactive drug; plants make it as a natural insecticide.",
     "cid": 2519,
     "iupacName": "1,3,7-trimethylpurine-2,6-dione",
     "formula": "C8H10N4O2",
@@ -29,6 +30,7 @@
       "3,7-dimethylxanthine"
     ],
     "category": "food",
+    "fact": "The main stimulant in chocolate, and the reason chocolate is toxic to dogs.",
     "cid": 5429,
     "iupacName": "3,7-dimethylpurine-2,6-dione",
     "formula": "C7H8N4O2",
@@ -49,6 +51,7 @@
     "name": "Nicotine",
     "aliases": [],
     "category": "drug",
+    "fact": "Tobacco plants produce it to poison the insects that eat their leaves.",
     "cid": 89594,
     "iupacName": "3-[(2S)-1-methylpyrrolidin-2-yl]pyridine",
     "formula": "C10H14N2",
@@ -69,6 +72,7 @@
     "name": "Capsaicin",
     "aliases": [],
     "category": "food",
+    "fact": "Makes chili peppers hot by triggering the same receptor that senses heat; birds can't feel it.",
     "cid": 1548943,
     "iupacName": "(E)-N-[(4-hydroxy-3-methoxyphenyl)methyl]-8-methylnon-6-enamide",
     "formula": "C18H27NO3",
@@ -94,6 +98,7 @@
       "(-)-menthol"
     ],
     "category": "food",
+    "fact": "Feels cold because it activates TRPM8, the receptor your nerves use to sense cool temperatures.",
     "cid": 16666,
     "iupacName": "(1R,2S,5R)-5-methyl-2-propan-2-ylcyclohexan-1-ol",
     "formula": "C10H20O",
@@ -113,6 +118,7 @@
     "name": "Vanillin",
     "aliases": [],
     "category": "food",
+    "fact": "Most vanilla flavor sold today is synthetic vanillin, once made mainly from wood pulp waste.",
     "cid": 1183,
     "iupacName": "4-hydroxy-3-methoxybenzaldehyde",
     "formula": "C8H8O3",
@@ -138,6 +144,7 @@
       "cinnamic aldehyde"
     ],
     "category": "food",
+    "fact": "Gives cinnamon its flavor and smell, making up about 90% of cinnamon bark oil.",
     "cid": 637511,
     "iupacName": "(E)-3-phenylprop-2-enal",
     "formula": "C9H8O",
@@ -160,6 +167,7 @@
       "d-limonene"
     ],
     "category": "food",
+    "fact": "The citrus smell of orange peel; its mirror image smells more like turpentine.",
     "cid": 440917,
     "iupacName": "(4R)-1-methyl-4-prop-1-en-2-ylcyclohexene",
     "formula": "C10H16",
@@ -179,6 +187,7 @@
       "diferuloylmethane"
     ],
     "category": "food",
+    "fact": "The bright yellow pigment of turmeric, also used as a food coloring (E100).",
     "cid": 969516,
     "iupacName": "(1E,6E)-1,7-bis(4-hydroxy-3-methoxyphenyl)hepta-1,6-diene-3,5-dione",
     "formula": "C21H20O6",
@@ -201,6 +210,7 @@
     "name": "Allicin",
     "aliases": [],
     "category": "food",
+    "fact": "Forms only when garlic is crushed or cut, as an enzyme reacts with a precursor.",
     "cid": 65036,
     "iupacName": "3-prop-2-enylsulfinylsulfanylprop-1-ene",
     "formula": "C6H10OS2",
@@ -224,6 +234,7 @@
       "blood sugar"
     ],
     "category": "metabolite",
+    "fact": "Your brain burns roughly 120 grams of it every day.",
     "cid": 5793,
     "iupacName": "(3R,4S,5S,6R)-6-(hydroxymethyl)oxane-2,3,4,5-tetrol",
     "formula": "C6H12O6",
@@ -248,6 +259,7 @@
       "levulose"
     ],
     "category": "food",
+    "fact": "The sweetest natural sugar, nearly twice as sweet as table sugar.",
     "cid": 2723872,
     "iupacName": "(3S,4R,5R)-2-(hydroxymethyl)oxane-2,3,4,5-tetrol",
     "formula": "C6H12O6",
@@ -271,6 +283,7 @@
       "saccharose"
     ],
     "category": "food",
+    "fact": "Table sugar: one glucose and one fructose joined together.",
     "cid": 5988,
     "iupacName": "(2R,3R,4S,5S,6R)-2-[(2S,3S,4S,5R)-3,4-dihydroxy-2,5-bis(hydroxymethyl)oxolan-2-yl]oxy-6-(hydroxymethyl)oxane-3,4,5-triol",
     "formula": "C12H22O11",
@@ -295,6 +308,7 @@
       "grain alcohol"
     ],
     "category": "food",
+    "fact": "Humans have been brewing it for at least 9,000 years.",
     "cid": 702,
     "iupacName": "ethanol",
     "formula": "C2H6O",
@@ -316,6 +330,7 @@
       "ethanoic acid"
     ],
     "category": "food",
+    "fact": "Gives vinegar its sour taste and sharp smell, at about 5% concentration.",
     "cid": 176,
     "iupacName": "acetic acid",
     "formula": "C2H4O2",
@@ -335,6 +350,7 @@
     "name": "Citric acid",
     "aliases": [],
     "category": "food",
+    "fact": "Most of it is now made by fermenting sugar with the mold Aspergillus niger, not from citrus.",
     "cid": 311,
     "iupacName": "2-hydroxypropane-1,2,3-tricarboxylic acid",
     "formula": "C6H8O7",
@@ -358,6 +374,7 @@
       "milk acid"
     ],
     "category": "metabolite",
+    "fact": "Made by your muscles during hard exercise, and by bacteria when they turn milk into yogurt.",
     "cid": 107689,
     "iupacName": "(2S)-2-hydroxypropanoic acid",
     "formula": "C3H6O3",
@@ -382,6 +399,7 @@
       "ascorbate"
     ],
     "category": "vitamin",
+    "fact": "Humans, unlike most mammals, can't make it, which is why sailors got scurvy.",
     "cid": 54670067,
     "iupacName": "(2R)-2-[(1S)-1,2-dihydroxyethyl]-3,4-dihydroxy-2H-furan-5-one",
     "formula": "C6H8O6",
@@ -404,6 +422,7 @@
       "carbamide"
     ],
     "category": "metabolite",
+    "fact": "Friedrich Wöhler's 1828 synthesis of it helped show organic compounds could be made in a lab.",
     "cid": 1176,
     "iupacName": "urea",
     "formula": "CH4N2O",
@@ -426,6 +445,7 @@
       "asa"
     ],
     "category": "drug",
+    "fact": "Derived from salicylic acid, found in willow bark, which was used for pain for millennia.",
     "cid": 2244,
     "iupacName": "2-acetyloxybenzoic acid",
     "formula": "C9H8O4",
@@ -451,6 +471,7 @@
       "motrin"
     ],
     "category": "drug",
+    "fact": "Discovered in the 1960s by a team at Boots in Nottingham, England.",
     "cid": 3672,
     "iupacName": "2-[4-(2-methylpropyl)phenyl]propanoic acid",
     "formula": "C13H18O2",
@@ -476,6 +497,7 @@
       "apap"
     ],
     "category": "drug",
+    "fact": "One of the most used pain relievers, yet exactly how it works is still debated.",
     "cid": 1983,
     "iupacName": "N-(4-hydroxyphenyl)acetamide",
     "formula": "C8H9NO2",
@@ -500,6 +522,7 @@
       "penicillin"
     ],
     "category": "drug",
+    "fact": "Alexander Fleming noticed a mold killing his bacteria cultures in 1928.",
     "cid": 5904,
     "iupacName": "(2S,5R,6R)-3,3-dimethyl-7-oxo-6-[(2-phenylacetyl)amino]-4-thia-1-azabicyclo[3.2.0]heptane-2-carboxylic acid",
     "formula": "C16H18N2O4S",
@@ -522,6 +545,7 @@
     "name": "Morphine",
     "aliases": [],
     "category": "drug",
+    "fact": "Named after Morpheus, the Greek god of dreams.",
     "cid": 5288826,
     "iupacName": "(4R,4aR,7S,7aR,12bS)-3-methyl-2,4,4a,7,7a,13-hexahydro-1H-4,12-methanobenzofuro[3,2-e]isoquinoline-7,9-diol",
     "formula": "C17H19NO3",
@@ -545,6 +569,7 @@
     "name": "Quinine",
     "aliases": [],
     "category": "drug",
+    "fact": "Gives tonic water its bitter taste and glows blue under UV light.",
     "cid": 3034034,
     "iupacName": "(R)-[(2S,4S,5R)-5-ethenyl-1-azabicyclo[2.2.2]octan-2-yl]-(6-methoxyquinolin-4-yl)methanol",
     "formula": "C20H24N2O2",
@@ -567,6 +592,7 @@
     "name": "Dopamine",
     "aliases": [],
     "category": "neurotransmitter",
+    "fact": "A key signal in the brain's reward and movement systems; its loss causes Parkinson's symptoms.",
     "cid": 681,
     "iupacName": "4-(2-aminoethyl)benzene-1,2-diol",
     "formula": "C8H11NO2",
@@ -591,6 +617,7 @@
       "5-hydroxytryptamine"
     ],
     "category": "neurotransmitter",
+    "fact": "About 90% of the body's supply is found in the gut, not the brain.",
     "cid": 5202,
     "iupacName": "3-(2-aminoethyl)-1H-indol-5-ol",
     "formula": "C10H12N2O",
@@ -614,6 +641,7 @@
       "epinephrine"
     ],
     "category": "hormone",
+    "fact": "Drives the fight-or-flight response; it was the first hormone to be isolated, in 1901.",
     "cid": 5816,
     "iupacName": "4-[(1R)-1-hydroxy-2-(methylamino)ethyl]benzene-1,2-diol",
     "formula": "C9H13NO3",
@@ -636,6 +664,7 @@
     "name": "Histamine",
     "aliases": [],
     "category": "neurotransmitter",
+    "fact": "Released by immune cells during allergic reactions, causing itching and swelling.",
     "cid": 774,
     "iupacName": "2-(1H-imidazol-5-yl)ethanamine",
     "formula": "C5H9N3",
@@ -658,6 +687,7 @@
       "ach"
     ],
     "category": "neurotransmitter",
+    "fact": "The first neurotransmitter ever discovered, by Otto Loewi in 1921.",
     "cid": 187,
     "iupacName": "2-acetyloxyethyl(trimethyl)azanium",
     "formula": "C7H16NO2+",
@@ -682,6 +712,7 @@
       "4-aminobutanoic acid"
     ],
     "category": "neurotransmitter",
+    "fact": "The brain's main inhibitory neurotransmitter, calming down nerve activity.",
     "cid": 119,
     "iupacName": "4-aminobutanoic acid",
     "formula": "C4H9NO2",
@@ -702,6 +733,7 @@
     "name": "Melatonin",
     "aliases": [],
     "category": "hormone",
+    "fact": "Made by the pineal gland in the dark; it signals to your body that it's night.",
     "cid": 896,
     "iupacName": "N-[2-(5-methoxy-1H-indol-3-yl)ethyl]acetamide",
     "formula": "C13H16N2O2",
@@ -725,6 +757,7 @@
       "hydrocortisone"
     ],
     "category": "hormone",
+    "fact": "The main stress hormone, peaking in the morning shortly after you wake up.",
     "cid": 5754,
     "iupacName": "(8S,9S,10R,11S,13S,14S,17R)-11,17-dihydroxy-17-(2-hydroxyacetyl)-10,13-dimethyl-2,6,7,8,9,11,12,14,15,16-decahydro-1H-cyclopenta[a]phenanthren-3-one",
     "formula": "C21H30O5",
@@ -745,6 +778,7 @@
     "name": "Testosterone",
     "aliases": [],
     "category": "hormone",
+    "fact": "Present in both men and women, at levels about ten times higher in men.",
     "cid": 6013,
     "iupacName": "(8R,9S,10R,13S,14S,17S)-17-hydroxy-10,13-dimethyl-1,2,6,7,8,9,11,12,14,15,16,17-dodecahydrocyclopenta[a]phenanthren-3-one",
     "formula": "C19H28O2",
@@ -769,6 +803,7 @@
       "e2"
     ],
     "category": "hormone",
+    "fact": "The most potent natural estrogen.",
     "cid": 5757,
     "iupacName": "(8R,9S,13S,14S,17S)-13-methyl-6,7,8,9,11,12,14,15,16,17-decahydrocyclopenta[a]phenanthrene-3,17-diol",
     "formula": "C18H24O2",
@@ -790,6 +825,7 @@
     "name": "Cholesterol",
     "aliases": [],
     "category": "metabolite",
+    "fact": "Essential for every animal cell membrane and the starting point for steroid hormones.",
     "cid": 5997,
     "iupacName": "(3S,8S,9S,10R,13R,14S,17R)-10,13-dimethyl-17-[(2R)-6-methylheptan-2-yl]-2,3,4,7,8,9,11,12,14,15,16,17-dodecahydro-1H-cyclopenta[a]phenanthren-3-ol",
     "formula": "C27H46O",
@@ -811,6 +847,7 @@
       "gly"
     ],
     "category": "metabolite",
+    "fact": "The simplest amino acid, and the only one without a mirror-image form.",
     "cid": 750,
     "iupacName": "2-aminoacetic acid",
     "formula": "C2H5NO2",
@@ -834,6 +871,7 @@
       "trp"
     ],
     "category": "metabolite",
+    "fact": "An essential amino acid the body uses to make serotonin and melatonin.",
     "cid": 6305,
     "iupacName": "(2S)-2-amino-3-(1H-indol-3-yl)propanoic acid",
     "formula": "C11H12N2O2",
@@ -858,6 +896,7 @@
       "adenosine 5'-triphosphate"
     ],
     "category": "metabolite",
+    "fact": "Your body recycles roughly its own weight in it every day.",
     "cid": 5957,
     "iupacName": "[[(2R,3S,4R,5R)-5-(6-aminopurin-9-yl)-3,4-dihydroxyoxolan-2-yl]methoxy-hydroxyphosphoryl] phosphono hydrogen phosphate",
     "formula": "C10H16N5O13P3",
@@ -884,6 +923,7 @@
       "equal"
     ],
     "category": "food",
+    "fact": "Discovered by accident in 1965 when a chemist licked his finger.",
     "cid": 134601,
     "iupacName": "(3S)-3-amino-4-[[(2S)-1-methoxy-1-oxo-3-phenylpropan-2-yl]amino]-4-oxobutanoic acid",
     "formula": "C14H18N2O5",

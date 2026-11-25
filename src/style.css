@@ -52,3 +52,206 @@ body {
   font-size: 0.9rem;
   color: #666;
 }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---- Guess input ---- */
+
+.guess-form {
+  width: 100%;
+}
+
+.guess-form[hidden] {
+  display: none;
+}
+
+.guess-count {
+  margin: 4px 0;
+  font-size: 0.85rem;
+  color: #666;
+  text-align: center;
+}
+
+.guess-row {
+  display: flex;
+  gap: 8px;
+}
+
+.combobox {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.guess-input,
+.guess-button {
+  height: 44px;
+  border-radius: 8px;
+  font: inherit;
+  /* >= 16px so iOS doesn't zoom in on focus */
+  font-size: 1rem;
+}
+
+.guess-input {
+  width: 100%;
+  padding: 0 12px;
+  border: 1px solid #c8c8c4;
+  background: #fff;
+  color: inherit;
+}
+
+.guess-input:focus {
+  outline: 2px solid #2b6cb0;
+  outline-offset: -1px;
+  border-color: transparent;
+}
+
+.guess-input[aria-invalid='true'] {
+  border-color: #c53030;
+}
+
+.guess-button {
+  padding: 0 16px;
+  border: 0;
+  background: #2b6cb0;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.guess-button:disabled {
+  opacity: 0.5;
+}
+
+.suggestions {
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  top: calc(100% + 4px);
+  margin: 0;
+  padding: 4px 0;
+  list-style: none;
+  max-height: 40dvh;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.18);
+}
+
+.suggestion {
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+.suggestion[aria-selected='true'],
+.suggestion:hover {
+  background: #ebf2fa;
+}
+
+.suggestion-alias {
+  color: #777;
+}
+
+.guess-error {
+  min-height: 1.2em;
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: #c53030;
+}
+
+/* ---- Guess list ---- */
+
+.guesses {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.guess {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.08);
+}
+
+.guess-mark {
+  font-weight: 700;
+}
+
+.guess-wrong .guess-mark {
+  color: #c53030;
+}
+
+.guess-correct {
+  background: #e6f4ea;
+}
+
+.guess-correct .guess-mark {
+  color: #2f855a;
+}
+
+/* ---- End screen ---- */
+
+.end {
+  width: 100%;
+  padding: 16px;
+  border-radius: 12px;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.12);
+}
+
+.end[hidden] {
+  display: none;
+}
+
+.end:focus {
+  outline: none;
+}
+
+.end-won {
+  background: #e6f4ea;
+}
+
+.end-lost {
+  background: #fdf0e6;
+}
+
+.end-heading {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.end-name {
+  margin: 4px 0 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.end-formula {
+  margin: 2px 0 0;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.end-fact {
+  margin: 10px 0 0;
+  line-height: 1.4;
+}
