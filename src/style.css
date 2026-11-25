@@ -454,7 +454,8 @@ button {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  opacity: 0.8;
+  /* 0.9 keeps the small labels at >= 4.5:1 on every tile color (0.8 failed on teal). */
+  opacity: 0.9;
 }
 
 .tile-icon {

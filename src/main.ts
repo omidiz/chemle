@@ -1,9 +1,10 @@
 import './style.css';
 import hintsYaml from '../data/hints.yaml?raw';
+import { guessAnnouncement } from './logic/announce';
 import { moleculeForPuzzle, puzzleNumber } from './logic/daily';
 import { errorMessage, restoreGame, submitGuess, wrongGuessCount } from './logic/game';
 import { parseHints, revealedHints, type Hints } from './logic/hints';
-import { anonymizeSdf, type Molecule } from './logic/molecule';
+import { anonymizeSdf, structureKey, type Molecule } from './logic/molecule';
 import { moleculesJsonUrl, sdfUrl } from './logic/paths';
 import { shareText } from './logic/share';
 import { recordResult } from './logic/stats';
@@ -50,6 +51,8 @@ async function start(): Promise<void> {
   const statsDialog = $<HTMLDialogElement>('#stats');
   const helpDialog = $<HTMLDialogElement>('#help');
   const statsBody = $<HTMLElement>('#stats-body');
+  const announceEl = $<HTMLParagraphElement>('#announce');
+  const guessField = $<HTMLInputElement>('#guess-input');
 
   const store = storage();
   const puzzle = puzzleNumber(new Date());
@@ -68,11 +71,25 @@ async function start(): Promise<void> {
     for (const b of dialog.querySelectorAll('.dialog-close, .help-play')) {
       b.addEventListener('click', () => dialog.close());
     }
-    // Clicking the backdrop (outside the dialog box) closes it too.
+    // Clicking the backdrop (outside the dialog box) closes it too. The
+    // target is the <dialog> for clicks on its own padding as well, so check
+    // the position rather than just the target.
     dialog.addEventListener('click', (e) => {
-      if (e.target === dialog) dialog.close();
+      if (e.target !== dialog) return;
+      const r = dialog.getBoundingClientRect();
+      const inside =
+        e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+      if (!inside) dialog.close();
     });
   }
+  // The first-visit help dialog opens before anything has focus, so on close
+  // focus would land on <body>. Move it to the model (the guess box may not
+  // be ready yet, and focusing it would pop up the keyboard on phones).
+  helpDialog.addEventListener('close', () => {
+    if (document.activeElement && document.activeElement !== document.body) return;
+    if (!viewerEl.hidden) viewerEl.focus({ preventScroll: true });
+    else if (!form.hidden) guessField.focus();
+  });
   $('#help-button').addEventListener('click', () => helpDialog.showModal());
   // First visit: explain the rules once.
   if (!hasSeenHelp(store)) {
@@ -92,27 +109,38 @@ async function start(): Promise<void> {
   try {
     molecules = JSON.parse(await fetchText(moleculesJsonUrl())) as Molecule[];
     target = moleculeForPuzzle(molecules, puzzle);
+  } catch (err) {
+    console.error(err);
+    statusEl.textContent = 'Could not load today’s molecule. Check your connection and reload.';
+    return;
+  }
+  try {
     const sdf = anonymizeSdf(await fetchText(sdfUrl(target.id)));
     showMolecule(viewerEl, sdf);
     statusEl.textContent = 'Drag to rotate · pinch to zoom';
   } catch (err) {
+    // No WebGL or the structure didn't load: the clues still work.
     console.error(err);
-    statusEl.textContent = 'Could not load today’s molecule.';
-    return;
+    viewerEl.hidden = true;
+    statusEl.textContent = 'The 3D model couldn’t be shown here, but you can still play with the clues.';
   }
 
   const byId = new Map(molecules.map((m) => [m.id, m]));
   const saved = loadProgress(store);
-  const resumed = saved?.puzzle === puzzle && saved.targetId === target.id;
+  const targetKey = structureKey(target.id);
+  const resumed = saved?.puzzle === puzzle && saved.targetKey === targetKey;
   let state = restoreGame(target, resumed ? saved.guesses : [], molecules);
 
   let shownHints = 0;
   /** `animate`: the last guess (and any newly revealed hint) was just made. */
-  const render = (animate = false) => {
+  const render = (animate = false): string[] => {
     renderGuesses(guessList, countEl, state, byId, animate);
     const revealed = revealedHints(hints[target.id], wrongGuessCount(state));
-    renderHints(hintsEl, revealed, animate ? shownHints : Infinity);
+    const fresh = revealed.slice(shownHints);
+    // Only touch the hints panel when a hint is added (avoids re-rendering it).
+    if (fresh.length || !animate) renderHints(hintsEl, revealed, animate ? shownHints : Infinity);
     shownHints = revealed.length;
+    return fresh;
   };
 
   /** Show the end screen. Stats are recorded once per puzzle (reloads are safe). */
@@ -144,9 +172,11 @@ async function start(): Promise<void> {
         return;
       }
       state = result.state;
-      saveProgress(store, { puzzle, targetId: target.id, guesses: state.guesses });
+      const hintsBefore = shownHints;
+      saveProgress(store, { puzzle, targetKey, guesses: state.guesses });
       guessInput.clear();
-      render(true);
+      const newHints = render(true);
+      announceEl.textContent = guessAnnouncement(state, byId, newHints, hintsBefore);
       if (state.status !== 'playing') finish(true);
     },
   );

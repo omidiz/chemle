@@ -30,7 +30,7 @@ export function mountGuessInput(
       ...items.map((s, i) => {
         const li = document.createElement('li');
         li.id = `suggestion-${i}`;
-        li.role = 'option';
+        li.setAttribute('role', 'option');
         li.className = 'suggestion';
         li.setAttribute('aria-selected', String(i === active));
         li.textContent = s.label;
