@@ -1,0 +1,905 @@
+[
+  {
+    "id": "caffeine",
+    "name": "Caffeine",
+    "aliases": [
+      "guaranine",
+      "1,3,7-trimethylxanthine"
+    ],
+    "category": "food",
+    "cid": 2519,
+    "iupacName": "1,3,7-trimethylpurine-2,6-dione",
+    "formula": "C8H10N4O2",
+    "molecularWeight": 194.19,
+    "smiles": "CN1C=NC2=C1C(=O)N(C(=O)N2C)C",
+    "isomericSmiles": "CN1C=NC2=C1C(=O)N(C(=O)N2C)C",
+    "heavyAtoms": 14,
+    "rings": 2,
+    "aromaticRings": 2,
+    "functionalGroups": [
+      "amide",
+      "aromatic ring"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "theobromine",
+    "name": "Theobromine",
+    "aliases": [
+      "3,7-dimethylxanthine"
+    ],
+    "category": "food",
+    "cid": 5429,
+    "iupacName": "3,7-dimethylpurine-2,6-dione",
+    "formula": "C7H8N4O2",
+    "molecularWeight": 180.16,
+    "smiles": "CN1C=NC2=C1C(=O)NC(=O)N2C",
+    "isomericSmiles": "CN1C=NC2=C1C(=O)NC(=O)N2C",
+    "heavyAtoms": 13,
+    "rings": 2,
+    "aromaticRings": 2,
+    "functionalGroups": [
+      "amide",
+      "aromatic ring"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "nicotine",
+    "name": "Nicotine",
+    "aliases": [],
+    "category": "drug",
+    "cid": 89594,
+    "iupacName": "3-[(2S)-1-methylpyrrolidin-2-yl]pyridine",
+    "formula": "C10H14N2",
+    "molecularWeight": 162.23,
+    "smiles": "CN1CCCC1C2=CN=CC=C2",
+    "isomericSmiles": "CN1CCC[C@H]1C2=CN=CC=C2",
+    "heavyAtoms": 12,
+    "rings": 2,
+    "aromaticRings": 1,
+    "functionalGroups": [
+      "amine",
+      "aromatic ring"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "capsaicin",
+    "name": "Capsaicin",
+    "aliases": [],
+    "category": "food",
+    "cid": 1548943,
+    "iupacName": "(E)-N-[(4-hydroxy-3-methoxyphenyl)methyl]-8-methylnon-6-enamide",
+    "formula": "C18H27NO3",
+    "molecularWeight": 305.4,
+    "smiles": "CC(C)C=CCCCCC(=O)NCC1=CC(=C(C=C1)O)OC",
+    "isomericSmiles": "CC(C)/C=C/CCCCC(=O)NCC1=CC(=C(C=C1)O)OC",
+    "heavyAtoms": 22,
+    "rings": 1,
+    "aromaticRings": 1,
+    "functionalGroups": [
+      "phenol",
+      "ether",
+      "amide",
+      "aromatic ring"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "menthol",
+    "name": "Menthol",
+    "aliases": [
+      "l-menthol",
+      "(-)-menthol"
+    ],
+    "category": "food",
+    "cid": 16666,
+    "iupacName": "(1R,2S,5R)-5-methyl-2-propan-2-ylcyclohexan-1-ol",
+    "formula": "C10H20O",
+    "molecularWeight": 156.26,
+    "smiles": "CC1CCC(C(C1)O)C(C)C",
+    "isomericSmiles": "C[C@@H]1CC[C@H]([C@@H](C1)O)C(C)C",
+    "heavyAtoms": 11,
+    "rings": 1,
+    "aromaticRings": 0,
+    "functionalGroups": [
+      "alcohol"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "vanillin",
+    "name": "Vanillin",
+    "aliases": [],
+    "category": "food",
+    "cid": 1183,
+    "iupacName": "4-hydroxy-3-methoxybenzaldehyde",
+    "formula": "C8H8O3",
+    "molecularWeight": 152.15,
+    "smiles": "COC1=C(C=CC(=C1)C=O)O",
+    "isomericSmiles": "COC1=C(C=CC(=C1)C=O)O",
+    "heavyAtoms": 11,
+    "rings": 1,
+    "aromaticRings": 1,
+    "functionalGroups": [
+      "phenol",
+      "ether",
+      "aldehyde",
+      "aromatic ring"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "cinnamaldehyde",
+    "name": "Cinnamaldehyde",
+    "aliases": [
+      "cinnamal",
+      "cinnamic aldehyde"
+    ],
+    "category": "food",
+    "cid": 637511,
+    "iupacName": "(E)-3-phenylprop-2-enal",
+    "formula": "C9H8O",
+    "molecularWeight": 132.16,
+    "smiles": "C1=CC=C(C=C1)C=CC=O",
+    "isomericSmiles": "C1=CC=C(C=C1)/C=C/C=O",
+    "heavyAtoms": 10,
+    "rings": 1,
+    "aromaticRings": 1,
+    "functionalGroups": [
+      "aldehyde",
+      "aromatic ring"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "limonene",
+    "name": "Limonene",
+    "aliases": [
+      "d-limonene"
+    ],
+    "category": "food",
+    "cid": 440917,
+    "iupacName": "(4R)-1-methyl-4-prop-1-en-2-ylcyclohexene",
+    "formula": "C10H16",
+    "molecularWeight": 136.23,
+    "smiles": "CC1=CCC(CC1)C(=C)C",
+    "isomericSmiles": "CC1=CC[C@@H](CC1)C(=C)C",
+    "heavyAtoms": 10,
+    "rings": 1,
+    "aromaticRings": 0,
+    "functionalGroups": [],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "curcumin",
+    "name": "Curcumin",
+    "aliases": [
+      "diferuloylmethane"
+    ],
+    "category": "food",
+    "cid": 969516,
+    "iupacName": "(1E,6E)-1,7-bis(4-hydroxy-3-methoxyphenyl)hepta-1,6-diene-3,5-dione",
+    "formula": "C21H20O6",
+    "molecularWeight": 368.4,
+    "smiles": "COC1=C(C=CC(=C1)C=CC(=O)CC(=O)C=CC2=CC(=C(C=C2)O)OC)O",
+    "isomericSmiles": "COC1=C(C=CC(=C1)/C=C/C(=O)CC(=O)/C=C/C2=CC(=C(C=C2)O)OC)O",
+    "heavyAtoms": 27,
+    "rings": 2,
+    "aromaticRings": 2,
+    "functionalGroups": [
+      "phenol",
+      "ether",
+      "ketone",
+      "aromatic ring"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "allicin",
+    "name": "Allicin",
+    "aliases": [],
+    "category": "food",
+    "cid": 65036,
+    "iupacName": "3-prop-2-enylsulfinylsulfanylprop-1-ene",
+    "formula": "C6H10OS2",
+    "molecularWeight": 162.3,
+    "smiles": "C=CCSS(=O)CC=C",
+    "isomericSmiles": "C=CCSS(=O)CC=C",
+    "heavyAtoms": 9,
+    "rings": 0,
+    "aromaticRings": 0,
+    "functionalGroups": [
+      "thiol/sulfide"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "glucose",
+    "name": "Glucose",
+    "aliases": [
+      "dextrose",
+      "d-glucose",
+      "blood sugar"
+    ],
+    "category": "metabolite",
+    "cid": 5793,
+    "iupacName": "(3R,4S,5S,6R)-6-(hydroxymethyl)oxane-2,3,4,5-tetrol",
+    "formula": "C6H12O6",
+    "molecularWeight": 180.16,
+    "smiles": "C(C1C(C(C(C(O1)O)O)O)O)O",
+    "isomericSmiles": "C([C@@H]1[C@H]([C@@H]([C@H](C(O1)O)O)O)O)O",
+    "heavyAtoms": 12,
+    "rings": 1,
+    "aromaticRings": 0,
+    "functionalGroups": [
+      "alcohol",
+      "ether"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "fructose",
+    "name": "Fructose",
+    "aliases": [
+      "d-fructose",
+      "fruit sugar",
+      "levulose"
+    ],
+    "category": "food",
+    "cid": 2723872,
+    "iupacName": "(3S,4R,5R)-2-(hydroxymethyl)oxane-2,3,4,5-tetrol",
+    "formula": "C6H12O6",
+    "molecularWeight": 180.16,
+    "smiles": "C1C(C(C(C(O1)(CO)O)O)O)O",
+    "isomericSmiles": "C1[C@H]([C@H]([C@@H](C(O1)(CO)O)O)O)O",
+    "heavyAtoms": 12,
+    "rings": 1,
+    "aromaticRings": 0,
+    "functionalGroups": [
+      "alcohol",
+      "ether"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "sucrose",
+    "name": "Sucrose",
+    "aliases": [
+      "table sugar",
+      "saccharose"
+    ],
+    "category": "food",
+    "cid": 5988,
+    "iupacName": "(2R,3R,4S,5S,6R)-2-[(2S,3S,4S,5R)-3,4-dihydroxy-2,5-bis(hydroxymethyl)oxolan-2-yl]oxy-6-(hydroxymethyl)oxane-3,4,5-triol",
+    "formula": "C12H22O11",
+    "molecularWeight": 342.3,
+    "smiles": "C(C1C(C(C(C(O1)OC2(C(C(C(O2)CO)O)O)CO)O)O)O)O",
+    "isomericSmiles": "C([C@@H]1[C@H]([C@@H]([C@H]([C@H](O1)O[C@]2([C@H]([C@@H]([C@H](O2)CO)O)O)CO)O)O)O)O",
+    "heavyAtoms": 23,
+    "rings": 2,
+    "aromaticRings": 0,
+    "functionalGroups": [
+      "alcohol",
+      "ether"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "ethanol",
+    "name": "Ethanol",
+    "aliases": [
+      "ethyl alcohol",
+      "alcohol",
+      "grain alcohol"
+    ],
+    "category": "food",
+    "cid": 702,
+    "iupacName": "ethanol",
+    "formula": "C2H6O",
+    "molecularWeight": 46.07,
+    "smiles": "CCO",
+    "isomericSmiles": "CCO",
+    "heavyAtoms": 3,
+    "rings": 0,
+    "aromaticRings": 0,
+    "functionalGroups": [
+      "alcohol"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "acetic-acid",
+    "name": "Acetic acid",
+    "aliases": [
+      "ethanoic acid"
+    ],
+    "category": "food",
+    "cid": 176,
+    "iupacName": "acetic acid",
+    "formula": "C2H4O2",
+    "molecularWeight": 60.05,
+    "smiles": "CC(=O)O",
+    "isomericSmiles": "CC(=O)O",
+    "heavyAtoms": 4,
+    "rings": 0,
+    "aromaticRings": 0,
+    "functionalGroups": [
+      "carboxylic acid"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "citric-acid",
+    "name": "Citric acid",
+    "aliases": [],
+    "category": "food",
+    "cid": 311,
+    "iupacName": "2-hydroxypropane-1,2,3-tricarboxylic acid",
+    "formula": "C6H8O7",
+    "molecularWeight": 192.12,
+    "smiles": "C(C(=O)O)C(CC(=O)O)(C(=O)O)O",
+    "isomericSmiles": "C(C(=O)O)C(CC(=O)O)(C(=O)O)O",
+    "heavyAtoms": 13,
+    "rings": 0,
+    "aromaticRings": 0,
+    "functionalGroups": [
+      "alcohol",
+      "carboxylic acid"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "lactic-acid",
+    "name": "Lactic acid",
+    "aliases": [
+      "2-hydroxypropanoic acid",
+      "milk acid"
+    ],
+    "category": "metabolite",
+    "cid": 107689,
+    "iupacName": "(2S)-2-hydroxypropanoic acid",
+    "formula": "C3H6O3",
+    "molecularWeight": 90.08,
+    "smiles": "CC(C(=O)O)O",
+    "isomericSmiles": "C[C@@H](C(=O)O)O",
+    "heavyAtoms": 6,
+    "rings": 0,
+    "aromaticRings": 0,
+    "functionalGroups": [
+      "alcohol",
+      "carboxylic acid"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "ascorbic-acid",
+    "name": "Ascorbic acid",
+    "aliases": [
+      "vitamin c",
+      "l-ascorbic acid",
+      "ascorbate"
+    ],
+    "category": "vitamin",
+    "cid": 54670067,
+    "iupacName": "(2R)-2-[(1S)-1,2-dihydroxyethyl]-3,4-dihydroxy-2H-furan-5-one",
+    "formula": "C6H8O6",
+    "molecularWeight": 176.12,
+    "smiles": "C(C(C1C(=C(C(=O)O1)O)O)O)O",
+    "isomericSmiles": "C([C@@H]([C@@H]1C(=C(C(=O)O1)O)O)O)O",
+    "heavyAtoms": 12,
+    "rings": 1,
+    "aromaticRings": 0,
+    "functionalGroups": [
+      "alcohol",
+      "ester"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "urea",
+    "name": "Urea",
+    "aliases": [
+      "carbamide"
+    ],
+    "category": "metabolite",
+    "cid": 1176,
+    "iupacName": "urea",
+    "formula": "CH4N2O",
+    "molecularWeight": 60.06,
+    "smiles": "C(=O)(N)N",
+    "isomericSmiles": "C(=O)(N)N",
+    "heavyAtoms": 4,
+    "rings": 0,
+    "aromaticRings": 0,
+    "functionalGroups": [
+      "amide"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "aspirin",
+    "name": "Aspirin",
+    "aliases": [
+      "acetylsalicylic acid",
+      "asa"
+    ],
+    "category": "drug",
+    "cid": 2244,
+    "iupacName": "2-acetyloxybenzoic acid",
+    "formula": "C9H8O4",
+    "molecularWeight": 180.16,
+    "smiles": "CC(=O)OC1=CC=CC=C1C(=O)O",
+    "isomericSmiles": "CC(=O)OC1=CC=CC=C1C(=O)O",
+    "heavyAtoms": 13,
+    "rings": 1,
+    "aromaticRings": 1,
+    "functionalGroups": [
+      "carboxylic acid",
+      "ester",
+      "aromatic ring"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "ibuprofen",
+    "name": "Ibuprofen",
+    "aliases": [
+      "advil",
+      "nurofen",
+      "motrin"
+    ],
+    "category": "drug",
+    "cid": 3672,
+    "iupacName": "2-[4-(2-methylpropyl)phenyl]propanoic acid",
+    "formula": "C13H18O2",
+    "molecularWeight": 206.28,
+    "smiles": "CC(C)CC1=CC=C(C=C1)C(C)C(=O)O",
+    "isomericSmiles": "CC(C)CC1=CC=C(C=C1)C(C)C(=O)O",
+    "heavyAtoms": 15,
+    "rings": 1,
+    "aromaticRings": 1,
+    "functionalGroups": [
+      "carboxylic acid",
+      "aromatic ring"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "paracetamol",
+    "name": "Paracetamol",
+    "aliases": [
+      "acetaminophen",
+      "tylenol",
+      "panadol",
+      "apap"
+    ],
+    "category": "drug",
+    "cid": 1983,
+    "iupacName": "N-(4-hydroxyphenyl)acetamide",
+    "formula": "C8H9NO2",
+    "molecularWeight": 151.16,
+    "smiles": "CC(=O)NC1=CC=C(C=C1)O",
+    "isomericSmiles": "CC(=O)NC1=CC=C(C=C1)O",
+    "heavyAtoms": 11,
+    "rings": 1,
+    "aromaticRings": 1,
+    "functionalGroups": [
+      "phenol",
+      "amide",
+      "aromatic ring"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "penicillin-g",
+    "name": "Penicillin G",
+    "aliases": [
+      "benzylpenicillin",
+      "penicillin"
+    ],
+    "category": "drug",
+    "cid": 5904,
+    "iupacName": "(2S,5R,6R)-3,3-dimethyl-7-oxo-6-[(2-phenylacetyl)amino]-4-thia-1-azabicyclo[3.2.0]heptane-2-carboxylic acid",
+    "formula": "C16H18N2O4S",
+    "molecularWeight": 334.4,
+    "smiles": "CC1(C(N2C(S1)C(C2=O)NC(=O)CC3=CC=CC=C3)C(=O)O)C",
+    "isomericSmiles": "CC1([C@@H](N2[C@H](S1)[C@@H](C2=O)NC(=O)CC3=CC=CC=C3)C(=O)O)C",
+    "heavyAtoms": 23,
+    "rings": 3,
+    "aromaticRings": 1,
+    "functionalGroups": [
+      "carboxylic acid",
+      "amide",
+      "aromatic ring",
+      "thiol/sulfide"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "morphine",
+    "name": "Morphine",
+    "aliases": [],
+    "category": "drug",
+    "cid": 5288826,
+    "iupacName": "(4R,4aR,7S,7aR,12bS)-3-methyl-2,4,4a,7,7a,13-hexahydro-1H-4,12-methanobenzofuro[3,2-e]isoquinoline-7,9-diol",
+    "formula": "C17H19NO3",
+    "molecularWeight": 285.34,
+    "smiles": "CN1CCC23C4C1CC5=C2C(=C(C=C5)O)OC3C(C=C4)O",
+    "isomericSmiles": "CN1CC[C@]23[C@@H]4[C@H]1CC5=C2C(=C(C=C5)O)O[C@H]3[C@H](C=C4)O",
+    "heavyAtoms": 21,
+    "rings": 5,
+    "aromaticRings": 1,
+    "functionalGroups": [
+      "alcohol",
+      "phenol",
+      "ether",
+      "amine",
+      "aromatic ring"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "quinine",
+    "name": "Quinine",
+    "aliases": [],
+    "category": "drug",
+    "cid": 3034034,
+    "iupacName": "(R)-[(2S,4S,5R)-5-ethenyl-1-azabicyclo[2.2.2]octan-2-yl]-(6-methoxyquinolin-4-yl)methanol",
+    "formula": "C20H24N2O2",
+    "molecularWeight": 324.4,
+    "smiles": "COC1=CC2=C(C=CN=C2C=C1)C(C3CC4CCN3CC4C=C)O",
+    "isomericSmiles": "COC1=CC2=C(C=CN=C2C=C1)[C@H]([C@@H]3C[C@@H]4CCN3C[C@@H]4C=C)O",
+    "heavyAtoms": 24,
+    "rings": 4,
+    "aromaticRings": 2,
+    "functionalGroups": [
+      "alcohol",
+      "ether",
+      "amine",
+      "aromatic ring"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "dopamine",
+    "name": "Dopamine",
+    "aliases": [],
+    "category": "neurotransmitter",
+    "cid": 681,
+    "iupacName": "4-(2-aminoethyl)benzene-1,2-diol",
+    "formula": "C8H11NO2",
+    "molecularWeight": 153.18,
+    "smiles": "C1=CC(=C(C=C1CCN)O)O",
+    "isomericSmiles": "C1=CC(=C(C=C1CCN)O)O",
+    "heavyAtoms": 11,
+    "rings": 1,
+    "aromaticRings": 1,
+    "functionalGroups": [
+      "phenol",
+      "amine",
+      "aromatic ring"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "serotonin",
+    "name": "Serotonin",
+    "aliases": [
+      "5-ht",
+      "5-hydroxytryptamine"
+    ],
+    "category": "neurotransmitter",
+    "cid": 5202,
+    "iupacName": "3-(2-aminoethyl)-1H-indol-5-ol",
+    "formula": "C10H12N2O",
+    "molecularWeight": 176.21,
+    "smiles": "C1=CC2=C(C=C1O)C(=CN2)CCN",
+    "isomericSmiles": "C1=CC2=C(C=C1O)C(=CN2)CCN",
+    "heavyAtoms": 13,
+    "rings": 2,
+    "aromaticRings": 2,
+    "functionalGroups": [
+      "phenol",
+      "amine",
+      "aromatic ring"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "adrenaline",
+    "name": "Adrenaline",
+    "aliases": [
+      "epinephrine"
+    ],
+    "category": "hormone",
+    "cid": 5816,
+    "iupacName": "4-[(1R)-1-hydroxy-2-(methylamino)ethyl]benzene-1,2-diol",
+    "formula": "C9H13NO3",
+    "molecularWeight": 183.2,
+    "smiles": "CNCC(C1=CC(=C(C=C1)O)O)O",
+    "isomericSmiles": "CNC[C@@H](C1=CC(=C(C=C1)O)O)O",
+    "heavyAtoms": 13,
+    "rings": 1,
+    "aromaticRings": 1,
+    "functionalGroups": [
+      "alcohol",
+      "phenol",
+      "amine",
+      "aromatic ring"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "histamine",
+    "name": "Histamine",
+    "aliases": [],
+    "category": "neurotransmitter",
+    "cid": 774,
+    "iupacName": "2-(1H-imidazol-5-yl)ethanamine",
+    "formula": "C5H9N3",
+    "molecularWeight": 111.15,
+    "smiles": "C1=C(NC=N1)CCN",
+    "isomericSmiles": "C1=C(NC=N1)CCN",
+    "heavyAtoms": 8,
+    "rings": 1,
+    "aromaticRings": 1,
+    "functionalGroups": [
+      "amine",
+      "aromatic ring"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "acetylcholine",
+    "name": "Acetylcholine",
+    "aliases": [
+      "ach"
+    ],
+    "category": "neurotransmitter",
+    "cid": 187,
+    "iupacName": "2-acetyloxyethyl(trimethyl)azanium",
+    "formula": "C7H16NO2+",
+    "molecularWeight": 146.21,
+    "smiles": "CC(=O)OCC[N+](C)(C)C",
+    "isomericSmiles": "CC(=O)OCC[N+](C)(C)C",
+    "heavyAtoms": 10,
+    "rings": 0,
+    "aromaticRings": 0,
+    "functionalGroups": [
+      "ester",
+      "amine"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "gaba",
+    "name": "GABA",
+    "aliases": [
+      "gamma-aminobutyric acid",
+      "γ-aminobutyric acid",
+      "4-aminobutanoic acid"
+    ],
+    "category": "neurotransmitter",
+    "cid": 119,
+    "iupacName": "4-aminobutanoic acid",
+    "formula": "C4H9NO2",
+    "molecularWeight": 103.12,
+    "smiles": "C(CC(=O)O)CN",
+    "isomericSmiles": "C(CC(=O)O)CN",
+    "heavyAtoms": 7,
+    "rings": 0,
+    "aromaticRings": 0,
+    "functionalGroups": [
+      "carboxylic acid",
+      "amine"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "melatonin",
+    "name": "Melatonin",
+    "aliases": [],
+    "category": "hormone",
+    "cid": 896,
+    "iupacName": "N-[2-(5-methoxy-1H-indol-3-yl)ethyl]acetamide",
+    "formula": "C13H16N2O2",
+    "molecularWeight": 232.28,
+    "smiles": "CC(=O)NCCC1=CNC2=C1C=C(C=C2)OC",
+    "isomericSmiles": "CC(=O)NCCC1=CNC2=C1C=C(C=C2)OC",
+    "heavyAtoms": 17,
+    "rings": 2,
+    "aromaticRings": 2,
+    "functionalGroups": [
+      "ether",
+      "amide",
+      "aromatic ring"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "cortisol",
+    "name": "Cortisol",
+    "aliases": [
+      "hydrocortisone"
+    ],
+    "category": "hormone",
+    "cid": 5754,
+    "iupacName": "(8S,9S,10R,11S,13S,14S,17R)-11,17-dihydroxy-17-(2-hydroxyacetyl)-10,13-dimethyl-2,6,7,8,9,11,12,14,15,16-decahydro-1H-cyclopenta[a]phenanthren-3-one",
+    "formula": "C21H30O5",
+    "molecularWeight": 362.5,
+    "smiles": "CC12CCC(=O)C=C1CCC3C2C(CC4(C3CCC4(C(=O)CO)O)C)O",
+    "isomericSmiles": "C[C@]12CCC(=O)C=C1CC[C@@H]3[C@@H]2[C@H](C[C@]4([C@H]3CC[C@@]4(C(=O)CO)O)C)O",
+    "heavyAtoms": 26,
+    "rings": 4,
+    "aromaticRings": 0,
+    "functionalGroups": [
+      "alcohol",
+      "ketone"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "testosterone",
+    "name": "Testosterone",
+    "aliases": [],
+    "category": "hormone",
+    "cid": 6013,
+    "iupacName": "(8R,9S,10R,13S,14S,17S)-17-hydroxy-10,13-dimethyl-1,2,6,7,8,9,11,12,14,15,16,17-dodecahydrocyclopenta[a]phenanthren-3-one",
+    "formula": "C19H28O2",
+    "molecularWeight": 288.4,
+    "smiles": "CC12CCC3C(C1CCC2O)CCC4=CC(=O)CCC34C",
+    "isomericSmiles": "C[C@]12CC[C@H]3[C@H]([C@@H]1CC[C@@H]2O)CCC4=CC(=O)CC[C@]34C",
+    "heavyAtoms": 21,
+    "rings": 4,
+    "aromaticRings": 0,
+    "functionalGroups": [
+      "alcohol",
+      "ketone"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "estradiol",
+    "name": "Estradiol",
+    "aliases": [
+      "oestradiol",
+      "17β-estradiol",
+      "e2"
+    ],
+    "category": "hormone",
+    "cid": 5757,
+    "iupacName": "(8R,9S,13S,14S,17S)-13-methyl-6,7,8,9,11,12,14,15,16,17-decahydrocyclopenta[a]phenanthrene-3,17-diol",
+    "formula": "C18H24O2",
+    "molecularWeight": 272.4,
+    "smiles": "CC12CCC3C(C1CCC2O)CCC4=C3C=CC(=C4)O",
+    "isomericSmiles": "C[C@]12CC[C@H]3[C@H]([C@@H]1CC[C@@H]2O)CCC4=C3C=CC(=C4)O",
+    "heavyAtoms": 20,
+    "rings": 4,
+    "aromaticRings": 1,
+    "functionalGroups": [
+      "alcohol",
+      "phenol",
+      "aromatic ring"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "cholesterol",
+    "name": "Cholesterol",
+    "aliases": [],
+    "category": "metabolite",
+    "cid": 5997,
+    "iupacName": "(3S,8S,9S,10R,13R,14S,17R)-10,13-dimethyl-17-[(2R)-6-methylheptan-2-yl]-2,3,4,7,8,9,11,12,14,15,16,17-dodecahydro-1H-cyclopenta[a]phenanthren-3-ol",
+    "formula": "C27H46O",
+    "molecularWeight": 386.7,
+    "smiles": "CC(C)CCCC(C)C1CCC2C1(CCC3C2CC=C4C3(CCC(C4)O)C)C",
+    "isomericSmiles": "C[C@H](CCCC(C)C)[C@H]1CC[C@@H]2[C@@]1(CC[C@H]3[C@H]2CC=C4[C@@]3(CC[C@@H](C4)O)C)C",
+    "heavyAtoms": 28,
+    "rings": 4,
+    "aromaticRings": 0,
+    "functionalGroups": [
+      "alcohol"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "glycine",
+    "name": "Glycine",
+    "aliases": [
+      "gly"
+    ],
+    "category": "metabolite",
+    "cid": 750,
+    "iupacName": "2-aminoacetic acid",
+    "formula": "C2H5NO2",
+    "molecularWeight": 75.07,
+    "smiles": "C(C(=O)O)N",
+    "isomericSmiles": "C(C(=O)O)N",
+    "heavyAtoms": 5,
+    "rings": 0,
+    "aromaticRings": 0,
+    "functionalGroups": [
+      "carboxylic acid",
+      "amine"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "tryptophan",
+    "name": "Tryptophan",
+    "aliases": [
+      "l-tryptophan",
+      "trp"
+    ],
+    "category": "metabolite",
+    "cid": 6305,
+    "iupacName": "(2S)-2-amino-3-(1H-indol-3-yl)propanoic acid",
+    "formula": "C11H12N2O2",
+    "molecularWeight": 204.22,
+    "smiles": "C1=CC=C2C(=C1)C(=CN2)CC(C(=O)O)N",
+    "isomericSmiles": "C1=CC=C2C(=C1)C(=CN2)C[C@@H](C(=O)O)N",
+    "heavyAtoms": 15,
+    "rings": 2,
+    "aromaticRings": 2,
+    "functionalGroups": [
+      "carboxylic acid",
+      "amine",
+      "aromatic ring"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "atp",
+    "name": "ATP",
+    "aliases": [
+      "adenosine triphosphate",
+      "adenosine 5'-triphosphate"
+    ],
+    "category": "metabolite",
+    "cid": 5957,
+    "iupacName": "[[(2R,3S,4R,5R)-5-(6-aminopurin-9-yl)-3,4-dihydroxyoxolan-2-yl]methoxy-hydroxyphosphoryl] phosphono hydrogen phosphate",
+    "formula": "C10H16N5O13P3",
+    "molecularWeight": 507.18,
+    "smiles": "C1=NC(=C2C(=N1)N(C=N2)C3C(C(C(O3)COP(=O)(O)OP(=O)(O)OP(=O)(O)O)O)O)N",
+    "isomericSmiles": "C1=NC(=C2C(=N1)N(C=N2)[C@H]3[C@@H]([C@@H]([C@H](O3)COP(=O)(O)OP(=O)(O)OP(=O)(O)O)O)O)N",
+    "heavyAtoms": 31,
+    "rings": 3,
+    "aromaticRings": 2,
+    "functionalGroups": [
+      "alcohol",
+      "ether",
+      "amine",
+      "aromatic ring",
+      "phosphate"
+    ],
+    "sdfSource": "pubchem"
+  },
+  {
+    "id": "aspartame",
+    "name": "Aspartame",
+    "aliases": [
+      "nutrasweet",
+      "equal"
+    ],
+    "category": "food",
+    "cid": 134601,
+    "iupacName": "(3S)-3-amino-4-[[(2S)-1-methoxy-1-oxo-3-phenylpropan-2-yl]amino]-4-oxobutanoic acid",
+    "formula": "C14H18N2O5",
+    "molecularWeight": 294.3,
+    "smiles": "COC(=O)C(CC1=CC=CC=C1)NC(=O)C(CC(=O)O)N",
+    "isomericSmiles": "COC(=O)[C@H](CC1=CC=CC=C1)NC(=O)[C@H](CC(=O)O)N",
+    "heavyAtoms": 21,
+    "rings": 1,
+    "aromaticRings": 1,
+    "functionalGroups": [
+      "carboxylic acid",
+      "ester",
+      "amine",
+      "amide",
+      "aromatic ring"
+    ],
+    "sdfSource": "pubchem"
+  }
+]
