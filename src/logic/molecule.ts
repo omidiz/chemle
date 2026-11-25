@@ -4,6 +4,8 @@ export interface Molecule {
   name: string;
   aliases: string[];
   category: string;
+  /** One-line fact shown once the answer is revealed. */
+  fact: string;
   formula: string;
   molecularWeight: number;
   heavyAtoms: number;
