@@ -9,7 +9,7 @@ Usage:
   pip install -r scripts/requirements.txt
   python scripts/build_data.py
 
-Edit `category` and `aliases` in the MOLECULES table below, then re-run.
+Edit `category` and `aliases` in the MOLECULES table (and FACTS) below, then re-run.
 (Don't edit molecules.json by hand: it is regenerated.)
 """
 
@@ -99,6 +99,50 @@ MOLECULES: list[Spec] = [
     Spec("aspartame", "Aspartame", "food", ["nutrasweet", "equal"]),
 ]
 # fmt: on
+
+# One-line fact shown on the end screen (after the answer is revealed).
+FACTS: dict[str, str] = {
+    "caffeine": "The world's most widely consumed psychoactive drug; plants make it as a natural insecticide.",
+    "theobromine": "The main stimulant in chocolate, and the reason chocolate is toxic to dogs.",
+    "nicotine": "Tobacco plants produce it to poison the insects that eat their leaves.",
+    "capsaicin": "Makes chili peppers hot by triggering the same receptor that senses heat; birds can't feel it.",
+    "menthol": "Feels cold because it activates TRPM8, the receptor your nerves use to sense cool temperatures.",
+    "vanillin": "Most vanilla flavor sold today is synthetic vanillin, once made mainly from wood pulp waste.",
+    "cinnamaldehyde": "Gives cinnamon its flavor and smell, making up about 90% of cinnamon bark oil.",
+    "limonene": "The citrus smell of orange peel; its mirror image smells more like turpentine.",
+    "curcumin": "The bright yellow pigment of turmeric, also used as a food coloring (E100).",
+    "allicin": "Forms only when garlic is crushed or cut, as an enzyme reacts with a precursor.",
+    "glucose": "Your brain burns roughly 120 grams of it every day.",
+    "fructose": "The sweetest natural sugar, nearly twice as sweet as table sugar.",
+    "sucrose": "Table sugar: one glucose and one fructose joined together.",
+    "ethanol": "Humans have been brewing it for at least 9,000 years.",
+    "acetic-acid": "Gives vinegar its sour taste and sharp smell, at about 5% concentration.",
+    "citric-acid": "Most of it is now made by fermenting sugar with the mold Aspergillus niger, not from citrus.",
+    "lactic-acid": "Made by your muscles during hard exercise, and by bacteria when they turn milk into yogurt.",
+    "ascorbic-acid": "Humans, unlike most mammals, can't make it, which is why sailors got scurvy.",
+    "urea": "Friedrich Wöhler's 1828 synthesis of it helped show organic compounds could be made in a lab.",
+    "aspirin": "Derived from salicylic acid, found in willow bark, which was used for pain for millennia.",
+    "ibuprofen": "Discovered in the 1960s by a team at Boots in Nottingham, England.",
+    "paracetamol": "One of the most used pain relievers, yet exactly how it works is still debated.",
+    "penicillin-g": "Alexander Fleming noticed a mold killing his bacteria cultures in 1928.",
+    "morphine": "Named after Morpheus, the Greek god of dreams.",
+    "quinine": "Gives tonic water its bitter taste and glows blue under UV light.",
+    "dopamine": "A key signal in the brain's reward and movement systems; its loss causes Parkinson's symptoms.",
+    "serotonin": "About 90% of the body's supply is found in the gut, not the brain.",
+    "adrenaline": "Drives the fight-or-flight response; it was the first hormone to be isolated, in 1901.",
+    "histamine": "Released by immune cells during allergic reactions, causing itching and swelling.",
+    "acetylcholine": "The first neurotransmitter ever discovered, by Otto Loewi in 1921.",
+    "gaba": "The brain's main inhibitory neurotransmitter, calming down nerve activity.",
+    "melatonin": "Made by the pineal gland in the dark; it signals to your body that it's night.",
+    "cortisol": "The main stress hormone, peaking in the morning shortly after you wake up.",
+    "testosterone": "Present in both men and women, at levels about ten times higher in men.",
+    "estradiol": "The most potent natural estrogen.",
+    "cholesterol": "Essential for every animal cell membrane and the starting point for steroid hormones.",
+    "glycine": "The simplest amino acid, and the only one without a mirror-image form.",
+    "tryptophan": "An essential amino acid the body uses to make serotonin and melatonin.",
+    "atp": "Your body recycles roughly its own weight in it every day.",
+    "aspartame": "Discovered by accident in 1965 when a chemist licked his finger.",
+}
 
 # Functional groups, in display order. A group is present if any SMARTS matches.
 FUNCTIONAL_GROUPS: list[tuple[str, list[str]]] = [
@@ -281,6 +325,7 @@ def build_one(spec: Spec) -> tuple[dict, str, list[str]]:
         "name": spec.name,
         "aliases": spec.aliases,
         "category": spec.category,
+        "fact": FACTS[spec.id],
         "cid": cid,
         "iupacName": props["iupac_name"],
         "formula": props["formula"],
@@ -318,6 +363,7 @@ def print_summary(entries: list[dict], all_warnings: dict[str, list[str]]) -> No
 def main() -> int:
     ids = [s.id for s in MOLECULES]
     assert len(ids) == len(set(ids)), "duplicate molecule ids"
+    assert set(FACTS) == set(ids), "FACTS must have exactly one entry per molecule"
 
     SDF_DIR.mkdir(parents=True, exist_ok=True)
     JSON_OUT.parent.mkdir(parents=True, exist_ok=True)
