@@ -9,6 +9,7 @@ export interface KeyValueStore {
 
 export const PROGRESS_KEY = 'chemle:progress';
 export const STATS_KEY = 'chemle:stats';
+export const HELP_SEEN_KEY = 'chemle:helpSeen';
 
 /** Today's game in progress (or just finished), so a reload can restore it. */
 export interface SavedProgress {
@@ -77,4 +78,13 @@ export function loadStats(store: KeyValueStore): Stats {
 
 export function saveStats(store: KeyValueStore, stats: Stats): void {
   write(store, STATS_KEY, stats);
+}
+
+/** Whether the "How to play" dialog has been shown before (first visit = false). */
+export function hasSeenHelp(store: KeyValueStore): boolean {
+  return read(store, HELP_SEEN_KEY) === true;
+}
+
+export function markHelpSeen(store: KeyValueStore): void {
+  write(store, HELP_SEEN_KEY, true);
 }

@@ -70,14 +70,18 @@ export function renderGuesses(
   countEl: HTMLElement,
   state: GameState,
   byId: ReadonlyMap<string, Molecule>,
+  animateLast = false,
 ): void {
   const target = byId.get(state.targetId);
+  const last = state.guesses.length - 1;
   listEl.replaceChildren(
-    ...state.guesses.map((id) => {
+    ...state.guesses.map((id, i) => {
       const li = document.createElement('li');
       const correct = id === state.targetId;
       const guess = byId.get(id);
       li.className = `guess ${correct ? 'guess-correct' : 'guess-wrong'}`;
+      // Only the guess just made animates in; restored guesses appear as-is.
+      if (animateLast && i === last) li.classList.add('guess-new');
       const head = el('div', 'guess-head');
       const mark = document.createElement('span');
       mark.className = 'guess-mark';
@@ -97,11 +101,14 @@ export function renderGuesses(
   countEl.textContent = `Guess ${Math.min(state.guesses.length + 1, MAX_GUESSES)} of ${MAX_GUESSES}`;
 }
 
-/** Show the revealed hints (hidden while there are none). */
-export function renderHints(panel: HTMLElement, hints: readonly string[]): void {
+/**
+ * Show the revealed hints (hidden while there are none). Hints at index
+ * `animateFrom` and later were just revealed and animate in.
+ */
+export function renderHints(panel: HTMLElement, hints: readonly string[], animateFrom = Infinity): void {
   panel.replaceChildren(
     ...hints.map((text, i) => {
-      const p = el('p', 'hint');
+      const p = el('p', i >= animateFrom ? 'hint hint-new' : 'hint');
       p.append(el('strong', 'hint-label', `Hint ${i + 1}`), ' ', text);
       return p;
     }),
@@ -156,11 +163,11 @@ export function renderEnd(
   fact.className = 'end-fact';
   fact.textContent = target.fact;
 
-  const statsButton = el('button', 'stats-link', 'See your stats');
+  const statsButton = el('button', 'secondary-button stats-link', 'See your stats');
   statsButton.type = 'button';
   statsButton.addEventListener('click', onShowStats);
 
-  const shareButton = el('button', 'share-button', 'Share');
+  const shareButton = el('button', 'primary-button share-button', 'Share');
   shareButton.type = 'button';
   shareButton.addEventListener('click', onShare);
 
