@@ -14,7 +14,8 @@ export const HELP_SEEN_KEY = 'chemle:helpSeen';
 /** Today's game in progress (or just finished), so a reload can restore it. */
 export interface SavedProgress {
   puzzle: number;
-  targetId: string;
+  /** `structureKey` of the answer's id (not the id, so storage doesn't spoil it). */
+  targetKey: string;
   guesses: string[];
 }
 
@@ -41,9 +42,9 @@ function write(store: KeyValueStore, key: string, value: unknown): void {
 export function loadProgress(store: KeyValueStore): SavedProgress | null {
   const v = read(store, PROGRESS_KEY) as Partial<SavedProgress> | null;
   if (!v || typeof v !== 'object') return null;
-  if (!isInt(v.puzzle) || typeof v.targetId !== 'string') return null;
+  if (!isInt(v.puzzle) || typeof v.targetKey !== 'string') return null;
   if (!Array.isArray(v.guesses) || !v.guesses.every((g) => typeof g === 'string')) return null;
-  return { puzzle: v.puzzle, targetId: v.targetId, guesses: v.guesses };
+  return { puzzle: v.puzzle, targetKey: v.targetKey, guesses: v.guesses };
 }
 
 export function saveProgress(store: KeyValueStore, progress: SavedProgress): void {

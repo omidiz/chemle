@@ -49,10 +49,17 @@
           </button>
         </div>
       </header>
-      <div id="viewer" class="viewer" role="img" aria-label="Rotatable 3D model of today’s mystery molecule"></div>
+      <div
+        id="viewer"
+        class="viewer"
+        tabindex="0"
+        role="application"
+        aria-roledescription="3D model"
+        aria-label="Today’s mystery molecule. Arrow keys rotate, plus and minus zoom."
+      ></div>
       <p id="status" class="status">Loading…</p>
-      <section id="end" class="end" tabindex="-1" aria-live="polite" hidden></section>
-      <section id="hints" class="hints" aria-live="polite" aria-label="Hints" hidden></section>
+      <section id="end" class="end" tabindex="-1" aria-label="Result" hidden></section>
+      <section id="hints" class="hints" aria-label="Hints" hidden></section>
       <form id="guess-form" class="guess-form" autocomplete="off" hidden>
         <p id="guess-count" class="guess-count"></p>
         <div class="guess-row">
@@ -80,6 +87,8 @@
         <p id="guess-error" class="guess-error" role="alert"></p>
       </form>
       <ol id="guesses" class="guesses" aria-label="Your guesses"></ol>
+      <!-- Screen readers hear each guess's result here (the list itself is not live). -->
+      <p id="announce" class="sr-only" aria-live="polite"></p>
     </main>
     <dialog id="help" class="dialog help-dialog" aria-labelledby="help-title">
       <div class="dialog-head">
