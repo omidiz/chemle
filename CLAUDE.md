@@ -13,7 +13,10 @@ After guess 3 and guess 5, a hand-written hint is revealed.
 - Static data only, no backend
 - localStorage for stats and streaks
 - Vitest for tests
-- Deployed on Vercel
+- Deployed on GitHub Pages at https://omidiz.github.io/chemle/
+  (.github/workflows/deploy.yml on push to main; ci.yml runs tests + build on PRs)
+- Vite `base` is `/chemle/`: load files from public/ via src/logic/paths.ts
+  (`assetUrl`, `moleculesJsonUrl`, `sdfUrl`), never with absolute `/data/...` paths
 
 ## Data
 - scripts/build_data.py (Python, PubChem + RDKit) generates:
