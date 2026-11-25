@@ -4,8 +4,10 @@ import { errorMessage, newGame, submitGuess, wrongGuessCount } from './logic/gam
 import { parseHints, revealedHints, type Hints } from './logic/hints';
 import { anonymizeSdf, pickMolecule, type Molecule } from './logic/molecule';
 import { moleculesJsonUrl, sdfUrl } from './logic/paths';
+import { puzzleNumber, shareText } from './logic/share';
 import { mountGuessInput } from './ui/guessInput';
 import { renderEnd, renderGuesses, renderHints } from './ui/render';
+import { shareResult } from './ui/share';
 import { showMolecule } from './viewer/viewer';
 
 async function fetchText(url: string): Promise<string> {
@@ -69,7 +71,9 @@ async function start(): Promise<void> {
         guessInput.disable();
         form.hidden = true;
         countEl.hidden = true;
-        renderEnd(endEl, state, target);
+        renderEnd(endEl, state, target, () => {
+          void shareResult(shareText(state, byId, puzzleNumber(new Date())));
+        });
       }
     },
   );

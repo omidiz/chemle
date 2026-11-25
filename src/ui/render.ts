@@ -124,7 +124,12 @@ function formulaEl(formula: string): HTMLElement {
 }
 
 /** Fill the end-of-game panel (success or reveal) and show it. */
-export function renderEnd(panel: HTMLElement, state: GameState, target: Molecule): void {
+export function renderEnd(
+  panel: HTMLElement,
+  state: GameState,
+  target: Molecule,
+  onShare: () => void,
+): void {
   const won = state.status === 'won';
   panel.className = `end ${won ? 'end-won' : 'end-lost'}`;
 
@@ -146,7 +151,11 @@ export function renderEnd(panel: HTMLElement, state: GameState, target: Molecule
   fact.className = 'end-fact';
   fact.textContent = target.fact;
 
-  panel.replaceChildren(heading, name, formula, fact);
+  const share = el('button', 'share-button', 'Share');
+  share.type = 'button';
+  share.addEventListener('click', onShare);
+
+  panel.replaceChildren(heading, name, formula, fact, share);
   panel.hidden = false;
   panel.focus();
 }
