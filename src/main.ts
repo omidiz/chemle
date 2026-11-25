@@ -1,9 +1,11 @@
 import './style.css';
-import { errorMessage, newGame, submitGuess } from './logic/game';
+import hintsYaml from '../data/hints.yaml?raw';
+import { errorMessage, newGame, submitGuess, wrongGuessCount } from './logic/game';
+import { parseHints, revealedHints, type Hints } from './logic/hints';
 import { anonymizeSdf, pickMolecule, type Molecule } from './logic/molecule';
 import { moleculesJsonUrl, sdfUrl } from './logic/paths';
 import { mountGuessInput } from './ui/guessInput';
-import { renderEnd, renderGuesses } from './ui/render';
+import { renderEnd, renderGuesses, renderHints } from './ui/render';
 import { showMolecule } from './viewer/viewer';
 
 async function fetchText(url: string): Promise<string> {
@@ -20,6 +22,14 @@ async function start(): Promise<void> {
   const guessList = $<HTMLOListElement>('#guesses');
   const countEl = $<HTMLParagraphElement>('#guess-count');
   const endEl = $<HTMLElement>('#end');
+  const hintsEl = $<HTMLElement>('#hints');
+
+  let hints: Hints = {};
+  try {
+    hints = parseHints(hintsYaml);
+  } catch (err) {
+    console.error(err); // The game still works without hints.
+  }
 
   let molecules: Molecule[];
   let target: Molecule;
@@ -37,6 +47,10 @@ async function start(): Promise<void> {
 
   const byId = new Map(molecules.map((m) => [m.id, m]));
   let state = newGame(target);
+  const render = () => {
+    renderGuesses(guessList, countEl, state, byId);
+    renderHints(hintsEl, revealedHints(hints[target.id], wrongGuessCount(state)));
+  };
 
   const guessInput = mountGuessInput(
     form,
@@ -50,7 +64,7 @@ async function start(): Promise<void> {
       }
       state = result.state;
       guessInput.clear();
-      renderGuesses(guessList, countEl, state, byId);
+      render();
       if (state.status !== 'playing') {
         guessInput.disable();
         form.hidden = true;
@@ -60,7 +74,7 @@ async function start(): Promise<void> {
     },
   );
 
-  renderGuesses(guessList, countEl, state, byId);
+  render();
   form.hidden = false;
 }
 

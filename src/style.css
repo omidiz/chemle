@@ -181,12 +181,18 @@ body {
 
 .guess {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
+  gap: 8px;
   padding: 10px 12px;
   border-radius: 8px;
   background: #fff;
   box-shadow: 0 1px 2px rgb(0 0 0 / 0.08);
+}
+
+.guess-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .guess-mark {
@@ -203,6 +209,149 @@ body {
 
 .guess-correct .guess-mark {
   color: #2f855a;
+}
+
+/* ---- Comparison tiles ---- */
+
+.tiles {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  /* Row 1: weight, atoms, rings. Row 2: type (as wide as its text) + groups. */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tile-weight,
+.tile-heavyAtoms,
+.tile-rings {
+  flex: 1 1 calc((100% - 8px) / 3);
+}
+
+.tiles .tile-category {
+  flex: 0 0 auto;
+  min-width: calc((100% - 8px) / 3);
+}
+
+.tile {
+  min-width: 0;
+  padding: 6px 6px 7px;
+  border-radius: 6px;
+  /* Color is a second cue only: every tile also shows an icon (✓ ≈ ✗). */
+  border: 2px solid transparent;
+}
+
+.tile-groups {
+  flex: 1 1 50%;
+}
+
+.tile-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tile-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.tile-icon {
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.tile-value {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tile-category .tile-value {
+  display: block;
+  text-transform: capitalize;
+}
+
+.tile-arrow {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.tile-match {
+  background: #2f7d4f;
+  color: #fff;
+}
+
+.tile-close {
+  background: #e9c23a;
+  color: #1a1a1a;
+}
+
+.tile-miss {
+  background: #e4e4e0;
+  color: #1a1a1a;
+  border-color: #d0d0cb;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.chip {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: rgb(255 255 255 / 0.85);
+  color: #1a1a1a;
+}
+
+.chip-none {
+  background: transparent;
+  font-weight: 400;
+  font-style: italic;
+  padding-left: 0;
+}
+
+/* ---- Hints ---- */
+
+.hints {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hints[hidden] {
+  display: none;
+}
+
+.hint {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #ebf2fa;
+  border-left: 4px solid #2b6cb0;
+  line-height: 1.4;
+}
+
+.hint-label {
+  margin-right: 4px;
 }
 
 /* ---- End screen ---- */
