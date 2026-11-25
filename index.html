@@ -7,7 +7,14 @@
   </head>
   <body>
     <main class="app">
-      <h1 class="title">Chemle</h1>
+      <header class="header">
+        <h1 class="title">Chemle <span id="puzzle-number" class="puzzle-number"></span></h1>
+        <button id="stats-button" class="icon-button" type="button" aria-label="Statistics" aria-haspopup="dialog">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path d="M4 20V10h3v10H4Zm6.5 0V4h3v16h-3ZM17 20v-7h3v7h-3Z" fill="currentColor" />
+          </svg>
+        </button>
+      </header>
       <div id="viewer" class="viewer" role="img" aria-label="Rotatable 3D model of today’s mystery molecule"></div>
       <p id="status" class="status">Loading…</p>
       <section id="end" class="end" tabindex="-1" aria-live="polite" hidden></section>
@@ -40,6 +47,13 @@
       </form>
       <ol id="guesses" class="guesses" aria-label="Your guesses"></ol>
     </main>
+    <dialog id="stats" class="stats-dialog" aria-labelledby="stats-title">
+      <div class="stats-head">
+        <h2 id="stats-title" class="stats-title">Statistics</h2>
+        <button id="stats-close" class="icon-button" type="button" aria-label="Close">✕</button>
+      </div>
+      <div id="stats-body"></div>
+    </dialog>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

@@ -27,6 +27,14 @@ After guess 3 and guess 5, a hand-written hint is revealed.
   `hint1`/`hint2` per molecule id; no YAML dependency). A test checks every
   molecule has both hints and none gives away the name or an alias.
 
+## Daily puzzle
+- src/config.ts: `LAUNCH_DATE` (puzzle #0, player's local date) and `SHUFFLE_SEED`.
+  Changing either (or adding/removing molecules) changes every day's molecule.
+- src/logic/daily.ts: date → puzzle number → molecule (seeded shuffle per
+  cycle through the list, sorted by id first), countdown to local midnight.
+- localStorage keys `chemle:progress` (today's guesses) and `chemle:stats`
+  (src/logic/storage.ts, src/logic/stats.ts).
+
 ## Rules
 - Keep it simple; ask before adding new dependencies
 - Mobile-first, works on small screens

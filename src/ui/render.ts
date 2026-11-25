@@ -10,6 +10,7 @@ import {
 } from '../logic/compare';
 import { formulaParts, MAX_GUESSES, type GameState } from '../logic/game';
 import type { Molecule } from '../logic/molecule';
+import { countdownEl } from './stats';
 
 function el<K extends keyof HTMLElementTagNameMap>(
   tag: K,
@@ -123,8 +124,16 @@ function formulaEl(formula: string): HTMLElement {
   return el;
 }
 
-/** Fill the end-of-game panel (success or reveal) and show it. */
-export function renderEnd(panel: HTMLElement, state: GameState, target: Molecule): void {
+/**
+ * Fill the end-of-game panel (success or reveal) with a countdown to the
+ * next puzzle and a button that opens the stats, then show it.
+ */
+export function renderEnd(
+  panel: HTMLElement,
+  state: GameState,
+  target: Molecule,
+  onShowStats: () => void,
+): void {
   const won = state.status === 'won';
   panel.className = `end ${won ? 'end-won' : 'end-lost'}`;
 
@@ -146,7 +155,11 @@ export function renderEnd(panel: HTMLElement, state: GameState, target: Molecule
   fact.className = 'end-fact';
   fact.textContent = target.fact;
 
-  panel.replaceChildren(heading, name, formula, fact);
+  const statsButton = el('button', 'stats-link', 'See your stats');
+  statsButton.type = 'button';
+  statsButton.addEventListener('click', onShowStats);
+
+  panel.replaceChildren(heading, name, formula, fact, countdownEl(), statsButton);
   panel.hidden = false;
   panel.focus();
 }
