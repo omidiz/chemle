@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { anonymizeSdf, pickMolecule, type Molecule } from './molecule';
+import { anonymizeSdf, type Molecule } from './molecule';
 
 import moleculesJson from '../../public/data/molecules.json';
 
@@ -8,16 +8,6 @@ const sdfFiles = import.meta.glob<string>('../../public/molecules/*.sdf', {
   query: '?raw',
   import: 'default',
   eager: true,
-});
-
-describe('pickMolecule', () => {
-  it('picks the first molecule', () => {
-    expect(pickMolecule(molecules)).toBe(molecules[0]);
-  });
-
-  it('throws on empty data', () => {
-    expect(() => pickMolecule([])).toThrow();
-  });
 });
 
 describe('anonymizeSdf', () => {

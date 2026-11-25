@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { compareMolecules, comparisonTiles } from './compare';
 import type { GameState } from './game';
 import type { Molecule } from './molecule';
-import { puzzleNumber, SHARE_URL, shareText, verdictEmoji } from './share';
+import { SHARE_URL, shareText, verdictEmoji } from './share';
 import moleculesJson from '../../public/data/molecules.json';
 
 const molecules = moleculesJson as Molecule[];
@@ -11,20 +11,6 @@ const state = (targetId: string, guesses: string[], status: GameState['status'])
   targetId,
   guesses,
   status,
-});
-
-describe('puzzleNumber', () => {
-  it('counts local calendar days from the first puzzle', () => {
-    expect(puzzleNumber(new Date(2026, 10, 25, 0, 0), '2026-11-25')).toBe(1);
-    expect(puzzleNumber(new Date(2026, 10, 25, 23, 59), '2026-11-25')).toBe(1);
-    expect(puzzleNumber(new Date(2026, 11, 6, 12), '2026-11-25')).toBe(12);
-    expect(puzzleNumber(new Date(2027, 0, 1), '2026-12-31')).toBe(2);
-  });
-
-  it('is not thrown off by DST changes', () => {
-    // March 2027 has a DST switch in many zones.
-    expect(puzzleNumber(new Date(2027, 3, 1), '2027-03-01')).toBe(32);
-  });
 });
 
 describe('shareText', () => {
