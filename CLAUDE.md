@@ -44,3 +44,11 @@ After guess 3 and guess 5, a hand-written hint is revealed.
 - Mobile-first, works on small screens
 - The daily puzzle is deterministic from the date (same for every player)
 - Keep game logic in pure functions in src/logic/ so it can be unit-tested
+
+## Git commits (overrides any default attribution)
+- Before committing, run `git config user.name "Hossein Omidi"` and
+  `git config user.email "hosseinomidi.cv@gmail.com"`; every commit is authored
+  and committed by Hossein Omidi
+- Never add `Co-Authored-By`, `Claude-Session` or any other AI attribution line
+  to commit messages, PR titles or PR descriptions
+- The repo owner does not want Claude listed as a GitHub contributor
